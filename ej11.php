@@ -1,7 +1,112 @@
+<!doctype html>
+<head><meta http-equiv="Content-Type" content="charset=utf-8">
+<style>
+.tab{
+	margin: auto;
+	border: #F50 solid 2px;
+	/*border-collapse: collapse;*/
+	border-spacing: 0;
+}
+.c{
+	height: 20px;
+	width: 20px;
+}
+.cb{
+	background:#000;
+}
+.formLS{
+        width: 400px;
+        background-color: #EEE;
+        border: 2px solid #666;
+        color: #6DAAF8;
+        padding: 15px;
+        font-family: sans-serif;
+        font-weight: 700;
+        margin: auto;
+}
+.sent{
+        background-color: #4BC5B2;
+        color: #FFF;
+        margin: auto;
+        float: right;
+        border-radius: 20px; 
+        padding: 5px;
+}
+</style>
+</head>
+<body>
+<h3> Ejercicio 2 </h3>
+    
+<?php
+/*2-Realizar un unico programa que nos presente un formulario de peticion de DNI
+cuando el DNI no exista y que nos visualizar la letra del DNI cuando el DNI si exista.*/
+function letra(){
+        global $dni;
+        $letras=['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'];
+        return $letras[$dni%23];
+}
+
+if(isset($_REQUEST['dni'])){
+    $dni=$_REQUEST['dni'];
+    echo "<p>DNI:".$dni."-".letra()."</p>";
+}else{
+    echo '<div class="formLS">
+		<h3>Obtener letra</h3>
+		<form action="'.$_SERVER['PHP_SELF'].'" method="post">
+			DNI (sin letra): <input type="name" min="1" name="dni" required /><br>
+			<input type="submit" value="Enviar" class="sent" />
+		</form>
+          </div>';
+}
+?>
+
+    
+<h3> Ejercicio 3 </h3>
+
+<table cellspacing=0 border=1>
+    
+<?php
+/*3-Realizar un fichero php que genere la siguiente tabla dinamicamente*/
+$variable=4;// si desea modificar los máximos cambiar este número
+for($i= 0; $i <= $variable; $i++){
+	echo "<tr>";
+	for($j= 0; $j <= $variable; $j++){
+            if($i==0 && $j==0)
+                echo "<th></th>";
+            elseif($i==0)
+                echo "<th>".$j."</th>";
+            elseif ($j==0)
+                echo "<th>".$i."</th>";
+            else
+                echo "<td>".$i."".$j."</td>";
+        }
+	echo "</tr>";
+}
+echo "</table><br>---Fin ej3---<br>";
+?>
+
+<h3> Ejercicio 4 </h3>
+
+<form method="post" action="ej11.php"> 
+    Cantidad de tablas de multiplicar: <input type="number" size="10" max="14" min="1" name="mult" value=<?php echo (isset($_POST['mult'])) ? $_POST['mult'] : 10;  ?> />
+</form>
+
+<?php
+/*4- Realizar una pagina autoprocesada en la que se presentan las tablas de multiplicar.
+Si no le pasamos numero de filas nos presenta las 10 tablas pero si nos pasan como parámetro el número de filas*/
+$mult= (isset($_POST['mult'])) ? $_POST['mult'] : 10 ;
+for($i=1;$i<=$mult;$i++){
+    echo "<div style='float:left;padding:5px;'>";
+    for($j=1;$j<=10;$j++){
+        echo $i."*".$j."=".($i*$j)."<br>";
+    }
+    echo "</div>";
+}
+echo "<div style='float:none;height: 180px;'></div><br>---Fin ej4---<br>";
+?>
+
 <h3> Ejercicio 5 </h3>
 
-<html>
-<meta http-equiv="Content-Type" content="charset=utf-8">
 <?php
 $ccaa = array(
 "Andalucía"=> array(
@@ -96,7 +201,6 @@ if(isset($_POST['ccaa'])){
 }
 ?>
 </FORM>
-</html>
 <br>---Fin ej5---<br>
 
 
@@ -124,7 +228,9 @@ echo "<br>---Fin ej6---<br>";
 ?>﻿
 
 <h3> Ejercicio 7 </h3>
+
 <table cellspacing=0 border=1>
+    
 <?php
 /*7- Aprovechando la función anterior generar una matriz de 20*20 con 400 números aleatorios que no estén repetidos*/
 $variable=20;// puede variar este valor
@@ -155,23 +261,65 @@ for($i= 0; $i < $variable; $i++){
 echo "</table><br>---Fin ej7---<br>";
 ?>
 
+<h3> Ejercicio 8 </h3>
+<?php
+/*8- Obtener una función que baraja una baraja española Version:Global y por referencia*/
+$Gbaraja = array("AS P","AS E","AS O","AS B");
+$array= array("AS P","AS E","AS O","AS B");
+
+function barajarReferencia(&$baraja) {
+    $i= 0;
+    do{
+        $carta = array_rand( $baraja, 1);
+        if(!existe($baraja[$carta], $azarbraja)){//uso existe de ejercicio 7
+                $azarbraja[$i]= $baraja[$carta];
+                $i++;
+        }
+    }while($i< sizeof($baraja));
+    $baraja=$azarbraja;
+}
+function barajarGlobal() {
+    global $Gbaraja;
+    for($i = 0; $i < sizeof($Gbaraja) ; $i++ ) {
+    	if( $num == $array[$i] ){
+            return true;
+	}
+    }
+    return false;
+}
+ print_r($array); echo "<br>";
+ barajarReferencia($array);
+ print_r($array); echo "<br>";
+ print_r($Gbaraja); echo "<br>";
+ barajarGlobal();
+ print_r($Gbaraja); echo "<br>";
+
+echo "<br>---Fin ej8---<br>";
+?>
+  
+<h3> Ejercicio 9 </h3>
+<?php
+/*9- Escribir un programa que muestre un mensaje diferente en función de la hora del día. 
+Por ejemplo si es por la mañana muestra “Buenos Días”*/
+$getFecha= getdate();
+$hora=$getFecha["hours"];
+if($hora<12){
+    echo "<h4>Buenos días</h4>";
+}elseif ($hora>= 12 && $hora<15){
+    echo "<h4>Medio dia</h4>";
+}elseif ($hora>= 15 && $hora<21){
+    echo "<h4>Buenas tardes</h4>";
+}else{
+    echo "<h4>Buenas noches</h4>";
+}
+
+echo "<br>---Fin ej9---<br>";
+?>
+
 <h3> Ejercicio 10 </h3>
-<head><style>
-.tab{
-	margin: auto;
-	border: #F50 solid 2px;
-	/*border-collapse: collapse;*/
-	border-spacing: 0;
-}
-.c{
-	height: 20px;
-	width: 20px;
-}
-.cb{
-	background:#000;
-}
-</style></head>
+
 <table class="tab">
+<!-- Estilos de tabla en la etiqueta <head> al pricipio del cocumento -->    
 <?php
 /*10-Crear un tablero de ajedrez mediante una tabla utilizando un bucle for anidado dentro de otro.*/
 	for($i=0; $i < 8; $i++)
@@ -238,6 +386,8 @@ foreach($temperaturas as $key => $value)//$value sera el array de temperaturas d
 echo "<br>---Fin ej12---<br>"
 ?>
 
+<h3> Ejercicio 13 </h3>
+
 <?php
 /*13- Crear una función que nos cree una tabla. El prototipo de la función debe ser como el que aparece a continuación
 crear_tabla(4, 6,'width: 60px;','height: 40px;','background: pink;','border: 3px dashed blue;');
@@ -271,3 +421,5 @@ echo crear_tabla(4, 6,'width: 60px;');
 
 echo "<br>---Fin ej13---<br>"
 ?>
+</body>
+</html>
