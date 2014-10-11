@@ -387,7 +387,6 @@ foreach($temperaturas as $key => $value)//$value sera el array de temperaturas d
 	}	
 echo "<br>---Fin ej12---<br>"
 ?>
-
 <h3> Ejercicio 13 </h3>
 
 <?php
@@ -396,37 +395,94 @@ crear_tabla(4, 6,'width: 60px;','height: 40px;','background: pink;','border: 3px
 Los parámetros en rojo son obligatorios y los demás no lo son, por tanto, cuando no los pasan tomara el alto y ancho de 70 el color azul y el borde negro.
 */
 function crear_tabla($col, $row){
-	$args= func_get_args();
-	$style=array('70px;','70px;','blue;','3px dashed black;');
-        for($i=0;$i<sizeof($args);$i++)
-            if(isset($args[$i])){
-                $pr =  explode ( ":" , $args[$i]);
-                switch ($pr[0]){
-                    case 'width': $style[0]=$pr[1];break;
-                    case 'height': $style[1]=$pr[1];break;
-                    case 'background': $style[2]=$pr[1];break;
-                    case 'border': $style[3]=$pr[1];break;
-                }
+    $args= func_get_args();
+    $style=array('width:70px;','height:70px;','background:#0af;','border:3px dashed black;');
+
+    unset($args[0]);//elimino el 1º parámetro
+    unset($args[1]);//elimino el 2º parámetro
+
+    foreach($args as $arg){
+        $pr =  explode ( ":" , $arg); //saco el tipo del estilo parametrizado
+        $sw = true; 
+        for($i= 0; $i < sizeof($style); $i++){
+            $stcut =  explode ( ":" , $style[$i]); //saco el literal de por defecto 
+            if ($pr[0] == $stcut[0]){
+                $style[$i] = $arg; // si existe lo modifico
+                $sw = !$sw;
             }
-	
-        echo "<table style='width:".$style[0]."height:".$style[1]."'><tbody>";
-	for($i=0; $i < $row; $i++)
-	{
-            echo "<tr ".$dar_style.">";
-            for($j=0; $j < $col; $j++)
-            {
-                    echo "<td style='background:".$style[2]."border:".$style[3]."'></td>";
-            }
-           echo "</tr>";
-	}
-	echo "</tbody></table>";
+        }
+        if($sw){
+            $style[]= $arg; // no existe tipo de estilo lo añado
+        }
+    }
+    visualizarTabla($col, $row,$style);
 }
 
-crear_tabla(4, 6,'width: 60px;','height: 40px;','background: pink;','border: 3px dashed blue;');
-crear_tabla(4, 6,'width: 60px;');
-crear_tabla(4, 6,'width: 60px;','height: 100px;','background: grey;','border: 3px dashed white;');
+function visualizarTabla($col, $row,$style){
+    echo "<table border=1; cellspacing=0;><tbody>";
+    for($i= 0; $i < $row; $i++)
+    {
+        echo "<tr ".$dar_style.">";
+        for($j= 0; $j < $col; $j++)
+        {
+            echo "<td style='";
+            foreach ($style as $st) 
+                echo $st; // muestro todos los estilos mandados por parámetro y los default
+            echo "'></td>";
+        }
+        echo "</tr>";
+    }
+    echo "</tbody></table>";
+}
+
+crear_tabla(4, 6,'width: 60px;','height: 40px;','background: pink;','border: 4px groove blue;');
+crear_tabla(4, 6,'height:50px;','border-radius:15px;');
+crear_tabla(4, 6,'width: 20px;','height: 20px;','background: #A7a;','border: 3px inset #d50;');
+crear_tabla(6, 4,'border: 3px inset #05d;','border: 2px solid #05d;');
 
 echo "<br>---Fin ej13---<br>"
+?>
+
+<h3> Ejercicio 14 </h3>
+
+<?php
+/*14 - Escribir una función personalizada llamada buscar($aguja,$pajar) que devuelva un array con la posición de todas las ocurrencias de aguja en pajar, o el valor FALSE en caso de que no haya ninguna.
+Probarla con la llamada buscar ('Ana', 'Ana Irene Palma').*/
+
+function buscar($aguja,$pajar){
+	$cadenas = explode ( " " , $pajar); //transformo la cadena en un array de cadenas
+	$findPalabra = array();
+	
+	var_dump($cadenas);
+
+	foreach ($cadenas as $indice => $palabra)
+		if( strcmp(  strtolower( trim ($palabra,".\t\n:") ), strtolower( trim ($aguja) )  ) === 0 )// o usar stristr()
+			$findPalabra[] = $indice;
+	
+	return $findPalabra;
+}
+
+if(isset($_POST['aguja']) && isset($_POST['pajar'])){
+	if (empty($_POST['aguja']) || empty($_POST['pajar'])){
+		header ('refres: 5, url='.$_SERVER['PHP_SELF']);
+	}else{
+		$search= buscar ($_POST['aguja'], $_POST['pajar']);
+		if(sizeof($search)>0)
+			foreach ($search as $value) echo "Es la ".($value+1)."ª palabra <br>";
+		else
+			echo "No existe la palabra en la cadena";
+	}
+}else{
+	echo '<div class="formLS">
+		<h3>Buscar palabra</h3>
+		<form action="'.$_SERVER['PHP_SELF'].'" method="post">
+			Frase: <textarea rows="4" cols="30" name="pajar" style="margin: 2px; width: 388px; height: 283px;" required ></textarea><br>
+			Palabra: <input type="text" name="aguja" required /><br>
+			<input type="submit" value="Enviar" class="sent" />
+		</form>
+        </div>';
+}
+echo "<br>---Fin ej14---<br>"
 ?>
 </body>
 </html>
