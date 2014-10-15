@@ -28,45 +28,22 @@
 /*14 - Escribir una función personalizada llamada buscar($aguja,$pajar) que devuelva un array con la posición de todas las ocurrencias de aguja en pajar, o el valor FALSE en caso de que no haya ninguna.
 Probarla con la llamada buscar ('Ana', 'Ana Irene Palma').*/
 
-function buscar($aguja,$pajar,$tp,$t1,$t2){
+function buscar($aguja,$pajar){
 	$cadenas = preg_replace('/ +/', ' ', $pajar);
 	$findPalabra = array();
 	$resalt = "<blockquote>";
 
-	if( $t1 ){
-		$cadenas = explode ( " " , $cadenas); //transformo la cadena en un array de cadenas
-		foreach ($cadenas as $indice => $palabra){
-			if ( strcmp(  strtolower( trim ($palabra,"!*@;:.,?\t\n") ), strtolower( trim ($aguja,"!*@;:.,?\t\n") )  ) === 0 ){
-				$findPalabra[] = $indice;
-				$resalt.="<strong>".$palabra."</strong> ";
-			}else{
-				$resalt.=$palabra." ";
-			}
-			//(strcmp(  strtolower( trim ($palabra,"!*@;:.,?\t\n") ), strtolower( trim ($aguja) ) ) === 0 ) ? ( ($findPalabra[] = $indice) && ($resalt.="<strong>".$palabra."</strong> ") ) : $resalt.=$palabra." ";
+	$cadenas = explode ( " " , $cadenas); //transformo la cadena en un array de cadenas
+	foreach ($cadenas as $indice => $palabra){
+		if ( strcmp(  strtolower( trim ($palabra,"!*@;:.,?\t\n") ), strtolower( trim ($aguja,"!*@;:.,?\t\n") )  ) === 0 ){
+			$findPalabra[] = $indice;
+			$resalt.="<strong>".$palabra."</strong> ";
+		}else{
+			$resalt.=$palabra." ";
 		}
-	}elseif ( $t2 ){
-		for ($i=0;$i<strlen($cadenas)-1; $i++){
-			$j=0;
-			if(strtolower($cadenas[$i])==strtolower($aguja[$j])){
-				$indice=$i;
-				do{
-					(strtolower($cadenas[$i+$j])===strtolower($aguja[$j])) ? $sw=true : $sw=false;
-					$j++;
-				}while($j<strlen($aguja) && $sw);
-
-				if($sw){
-					do{
-						$resalt.="<strong>".$cadenas[$i]."</strong>";
-						$i++;
-					}while($i<strlen($aguja));
-					$findPalabra[] = $indice;
-				}
-			}
-			$resalt.=$cadenas[$i];
-		}
+		//(strcmp(  strtolower( trim ($palabra,"!*@;:.,?\t\n") ), strtolower( trim ($aguja) ) ) === 0 ) ? ( ($findPalabra[] = $indice) && ($resalt.="<strong>".$palabra."</strong> ") ) : $resalt.=$palabra." ";
 	}
 	
-
 	echo $resalt."</blockquote>";
 	return $findPalabra;
 }
@@ -77,13 +54,12 @@ if(isset($_POST['aguja']) && isset($_POST['pajar'])){
 		header ('refres: 5, url='.$_SERVER['PHP_SELF']);
 	else{
 		echo "<blockquote>".$_POST['pajar']."</blockquote>";	
-		$tp= (isset($_POST['b1'])) ? $_POST['b1'] : $_POST['b2'];
 		
-		$search= buscar ($_POST['aguja'], $_POST['pajar'], $tp,isset($_POST['b1']),isset($_POST['b2']));
+		$search= buscar ($_POST['aguja'], $_POST['pajar']);
 		
 		if( sizeof($search)> 0 ){
 			foreach ( $search as $value ) 
-				echo "Es la ".($value+1)."ª ".$tp." <br>";
+				echo "Es la ".($value+1)."ª palabra <br>";
 		}else
 			echo "No existe la palabra en la frase";
 		
@@ -96,11 +72,12 @@ if(isset($_POST['aguja']) && isset($_POST['pajar'])){
 			Frase: <textarea rows="4" cols="30" name="pajar" style="margin: 2px; width: 388px; height: 283px;" required ></textarea><br>
 			Palabra: <input type="text" name="aguja" required /><br>
 			BUSCAR POR:
-			<input type="submit" value="Palabras" name="b1" class="sent" />
-			<input type="submit" value="Cadenas" name="b2" class="sent" />
+			<input type="submit" value="Cadenas" name="b" class="sent" />
 		</form>
         </div>';
 }
 ?>
+---End ej14---
+<hr/>
 </body>
 </html>
