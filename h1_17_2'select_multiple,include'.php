@@ -10,6 +10,7 @@
 		<h3>Buscadores</h3>
 		<form action=<?php echo $_SERVER['PHP_SELF'] ?> method="post">
 		Ejercicios:<br>
+		 
 		<select name="ejercicios[]" multiple="multiple" style="width:150px;">
 		  	<option value="ej1-14.php">1-13</option>
 		  	<option value="h1_14'comp_cadenas, Autoprocesada, funciones cadenas'.php">14</option>
@@ -21,10 +22,11 @@
 	</div>
 	<hr>
 	<?php
-	if(isset($_POST['ejercicios']))
+	if(isset($_POST['ejercicios'])){
 		$ejercicio=$_POST['ejercicios'];
 		foreach( $ejercicio as $key => $value)
 			include $value;
+	}
 	?>
 	---End ej17-2---
 </body>
