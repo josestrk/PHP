@@ -54,7 +54,7 @@ if (!isset($_POST['Blq'])){
 		</div>';
 	}
 	$content.="</div>";
-	echo '<form name="f1"><textarea name="campo1" style="margin: 2px; width: 490px; height: 700px;resice:none; max-width:490px; min-width:490px;" value="'.$content.'">'.$content.'</textarea>
+	echo '<form name="f1"><textarea name="campo1" style="margin: 2px; width: 490px; height: 700px;resice:none; max-width:490px; min-width:490px;">'.$content.'</textarea>
 	 <input type="button" onclick="copia_portapapeles()" value="Seleccionar Todo" /><form>';
 }
 ?>
