@@ -1,6 +1,6 @@
 <?php
 /*
-19-
+19-15
 En este ejercicio vamos a crear dos funciones de validación del lado del servidor que pueden serle de utilidad frecuentemente (recuerde que para validar las fechas ya disponemos de la función checkdate).
 	1.	Cree una función llamada is_nif($cadena) que compruebe si cadena es:
 		a.	Un número seguido de una única letra.
@@ -9,6 +9,7 @@ En este ejercicio vamos a crear dos funciones de validación del lado del servid
 		a.	Contiene un único signo @.
 		b.	Contiene un único punto por detrás de ese signo @.
 		c.	Contiene caracteres antes de la @, entre la @ y el punto, y detrás del punto.
+	3. Introduccion
 
 */
 function is_nif($cadena){

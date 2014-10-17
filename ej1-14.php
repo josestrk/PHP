@@ -1,38 +1,10 @@
 <!doctype html>
 <head><meta http-equiv="Content-Type" content="charset=utf-8">
-<style>
-.tab{
-	margin: auto;
-	border: #F50 solid 2px;
-	/*border-collapse: collapse;*/
-	border-spacing: 0;
-}
-.c{
-	height: 20px;
-	width: 20px;
-}
-.cb{
-	background:#000;
-}
-.formLS{
-        width: 400px;
-        background-color: #EEE;
-        border: 2px solid #666;
-        color: #6DAAF8;
-        padding: 15px;
-        font-family: sans-serif;
-        font-weight: 700;
-        margin: auto;
-}
-.sent{
-        background-color: #4BC5B2;
-        color: #FFF;
-        margin: auto;
-        float: right;
-        border-radius: 20px; 
-        padding: 5px;
-}
-</style>
+
+<?php
+require_once("style.css");
+?>
+
 </head>
 <body>
 <h3> Ejercicio 2 </h3>
