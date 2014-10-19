@@ -22,11 +22,10 @@ function create($i){
 	echo '
 	<div> 
 		<h4> FOTO </h4> 
-		Enlace de la foto: <input type="url" name="e_foto'.$i.'" size="50" />
+		Enlace de la foto y título: <input type="url" name="e_foto'.$i.'" size="50" required />
 		<br>subir foto: <input name="uploadedfile'.$i.'" type="file" />
 	<br><h4> DEFINICIÓN </h4> 
 	Título: <input type="text" size="25" name="tit'.$i.'" required />
-	<br>Enlace del título: <input type="url" name="e_tit'.$i.'" size="50" required />
 	<br>
 	<br>Definición CORTA:<small>200 caracteres máximo</small><br> <textarea maxlength="200" rows="3" cols="15" name="def'.$i.'" style="resice:none; max-width:388px; min-width:388px;  max-height:100px; min-height:90px;margin: 2px;" required ></textarea><br>
 	</div>';
@@ -48,22 +47,38 @@ if (!isset($_POST['Blq'])){
 	
 	$content;
 	for($i=1;$i<=2;$i++){
-		$target_path = "/themes/schoolstore/img/cms/web/";
-		$target_path = $target_path . basename( $_FILES['uploadedfile']['name']); if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) { $photo=$_FILES['uploadedfile']['tmp_name'];echo "El archivo ". basename( $_FILES['uploadedfile']['name']). " ha sido subido";
-		} else{
+		$target_path = "/themes/schoolstore/img/cms/web/";  
+			
+		$uploadedfile_size=$_FILES['uploadedfile'.$i][size];
+		
+		if ($_FILES['uploadedfile'.$i][size]>200000)
+		{$msg=$msg."El archivo es mayor que 200KB, debes reduzcirlo antes de subirlo<BR>";
+		$uploadedfileload="false";}
+
+		if (!($_FILES['uploadedfile'.$i][type] =="image/jpeg" OR $_FILES['uploadedfile'.$i][type] =="image/gif" OR $_FILES['uploadedfile'.$i][type] =="image/png"))
+		{$msg=$msg." Tu archivo tiene que ser JPG o GIF. Otros archivos no son permitidos<BR>";
+		$uploadedfileload="false";}
+
+		if($uploadedfileload && move_uploaded_file (basename($_FILES['uploadedfile'.$i][name]), $target_path))
+		{
+			$photo=basename($_FILES['uploadedfile'.$i][name]);
+			echo "El archivo ". basename( $_FILES['uploadedfile'.$i][name]) ." ha sido subido";
+		} else {
 			$photo="example.jpg";
-			echo "Ha ocurrido un error, trate de nuevo!";
+			echo "Ha ocurrido un error, [".$msg."]";
 		}
 		$content.='<div class="'.$_POST['tip'].'">
 		<a href="'.$_POST['e_foto'.$i].'"><img src="http://slbg.es/themes/schoolstore/img/cms/web/'.$photo.'" width="150" height="156" alt="" /></a>
 		<div class="content_product_slideshow">
-			<h4><a class="text_page_color_text" href="'.$_POST['e_tit'.$i].'">'.$_POST['tit'.$i].'</a></h4>
+			<h4><a class="text_page_color_text" href="'.$_POST['e_foto'.$i].'">'.$_POST['tit'.$i].'</a></h4>
 			<p>'.$_POST['def'.$i].'</p>
 		</div>
 		</div>';
 	}
+
 	echo '<form name="f1"><textarea name="campo1" style="margin: 2px; width: 490px; height: 700px;resice:none; max-width:490px; min-width:490px;">'.$content.'</textarea>
 	 <input type="button" onclick="copia_portapapeles()" value="Seleccionar Todo" /><form></div><div class="formLS">'.$content;
+	 var_dump($_FILES);
 }
 ?>
 </div>
