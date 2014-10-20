@@ -9,8 +9,7 @@ En este ejercicio vamos a crear dos funciones de validación del lado del servid
 		a.	Contiene un único signo @.
 		b.	Contiene un único punto por detrás de ese signo @.
 		c.	Contiene caracteres antes de la @, entre la @ y el punto, y detrás del punto.
-	3. Introduccion
-
+	3. Introduccion (ejercicio15)
 */
 function is_nif($cadena){
 	$i=0;

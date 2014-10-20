@@ -43,6 +43,22 @@ border-radius: 20px;
 padding: 10px;
 }
 
+.alert{
+border: 2px solid red;
+color: red;
+font-weight: 700;
+text-align: center;
+padding: 10px;
+}
+
+.alertOK{
+border: 2px solid lightgreen;
+color: green;
+font-weight: 700;
+text-align: center;
+padding: 10px;
+}
+
 h2,h4{color:orange;}
 
 </style>

@@ -1,17 +1,8 @@
 <!doctype html>
 <head><meta http-equiv="Content-Type" content="charset=utf-8">
-<style>
-.formLS{width: 500px;float:left;background-color: #EEE;border: 2px solid #666;color: #6DAAF8;padding: 15px;font-family: sans-serif;font-weight: 700;margin: auto;}
-.sb{
-margin-top: 20px;
-height: 40px;
-background-color: #4BC5B2;
-color: #FFF;
-margin-right: 0px;
-border-radius: 20px;
-padding: 10px;}
-h2,h4{color:orange;}
-</style>
+<?php
+require_once("style.css");
+?>
 </head>
 <body>
 	<div class="formLS">
