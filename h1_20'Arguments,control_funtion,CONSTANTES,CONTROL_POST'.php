@@ -33,7 +33,7 @@ function formulario_evento(){
 	return "<div class='$tip'>$mms</div>";
 }
 
-//you can sent Max o array,[min,interval]
+//you can sent Max or Array,[min,interval]
 function rellena_formulario(){
 	$arguments= func_get_args();
 	if( !empty($arguments[0]) && is_numeric($arguments[0]) ){
@@ -48,6 +48,7 @@ function rellena_formulario(){
 			echo '<option value="'.$key.'"">'.$value.'</option>';
 	}
 }
+
 ?>
 
 <div class="formLS">
@@ -67,13 +68,21 @@ function rellena_formulario(){
 		:<select name="min"> <?php rellena_formulario(MIN,0,5); ?> </select>
 	</blockquote>
 	<blockquote>
-		Título:<br><input type="text" name="tit" /><br>
+		Título:<br><input type="text" name="titulo" /><br>
 		Comentario: <br>
 		<textarea rows="4" cols="30" name="coment" style="margin: 2px; min-height: 183px; max-height: 383px;resice:none; max-width:450px; min-width:420px;"></textarea>
 		<br>
+		<input type="hidden" value="100" name="id" />
 		<input type="submit" value="confirmar" name="confirmar" class="sent" />
 	</blockquote>
 	</form>
 </div>
+<?php
+	if(isset($_GET['operacion']) && $_GET['operacion']=='confirmar')
+		echo "<div class='formLS'><h2>Registro</h2>";
+		echo "<br>".$_POST['id']."||\t\t".$_POST['dia']."/".$_POST['mes']."/".$_POST['anno']."\t\t".$_POST['hora'].":".$_POST['min']."\t\t\t<h4>".$_POST['titulo']."</h4>\t".$_POST['coment'];
+		echo "</div>";
+;
+?>
 </body>
 </html>
