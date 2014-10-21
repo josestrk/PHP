@@ -29,23 +29,48 @@ function formulario_evento(){
 		else
 			$tip="alertOK";
 	else
-		$mms="No ha introducido bien la fecha";
+		$mms="No ha introducido bien la fecha y/o hora";
 	return "<div class='$tip'>$mms</div>";
 }
+
+function formularioText_evento(){
+	$mms="<div class='formLS'><h2>Registro</h2>";
+
+	if (!isset($_POST['titulo']))
+		$mms.="No ha introducido Titulo";
+	elseif(!isset($_POST['coment']))
+		$mms.="No ha introducido Comentario";
+	else
+		$mms.="<br>".$_POST['id']."||\t\t".$_POST['dia']."/".$_POST['mes']."/".$_POST['anno']."\t\t".$_POST['hora'].":".$_POST['min']."\t\t\t<h4>".$_POST['titulo']."</h4>\t".$_POST['coment'];
+	$mms.="</div>";
+
+	return $mms;
+}
+
 
 //you can sent Max or Array,[min,interval]
 function rellena_formulario(){
 	$arguments= func_get_args();
 	if( !empty($arguments[0]) && is_numeric($arguments[0]) ){
 		$max=$arguments[0];
-		$initial= isset($arguments[1]) ? $arguments[1] : 1;
-		$interval= !empty($arguments[2]) ? $arguments[2] : 1;
-		for($i=$initial; $i<= $max; $i= $interval+$i){
-			echo '<option value="'.$i.'"">'.$i.'</option>';
+		$initial= isset($arguments[2]) ? $arguments[2] : 1;
+		$default=isset($arguments[1]) ? $arguments[1] : $initial;
+		$interval= !empty($arguments[3]) ? $arguments[3] : 1;
+		
+		for( $i=$initial; $i<= $max; $i= $interval+$i ){
+			if($i==$default)
+				echo '<option value="'.$i.'" selected>'.$i.'</option>';
+			else
+				echo '<option value="'.$i.'">'.$i.'</option>';
 		}
 	}else{
-		foreach($arguments[0] as $key => $value)
-			echo '<option value="'.$key.'"">'.$value.'</option>';
+		$default=isset($arguments[1]) ? $arguments[1] : 1;
+		foreach($arguments[0] as $key => $value){
+			if($key==$default)
+				echo '<option value="'.$key.'" selected>'.$value.'</option>';
+			else
+				echo '<option value="'.$key.'"">'.$value.'</option>';
+		}
 	}
 }
 
@@ -59,18 +84,18 @@ function rellena_formulario(){
 	
 	<form action=<?php echo "$_SERVER[PHP_SELF]?operacion=confirmar" ?> method='post'>
 	<blockquote>
-		Día:<select name="dia"> <?php rellena_formulario(DIA);  ?> </select>
-		Mes:<select name="mes"> <?php rellena_formulario(array('ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE')); ?> </select>
-		Año:<select name="anno"> <?php rellena_formulario(ANNO,2000); ?> </select>
+		Día:<select name="dia"> <?php isset($_POST['dia']) ? rellena_formulario(DIA, $_POST['dia']) : rellena_formulario(DIA) ;  ?> </select>
+		Mes:<select name="mes"> <?php isset($_POST['mes']) ? rellena_formulario(array(NULL, 'ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE'), $_POST['mes']) : rellena_formulario(array(NULL, 'ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE')); ?> </select>
+		Año:<select name="anno"> <?php isset($_POST['anno']) ? rellena_formulario(ANNO,$_POST['anno'], 2000) : rellena_formulario(ANNO,0,2000); ?> </select>
 	</blockquote>
 	<blockquote>
-		<select name="hora"> <?php rellena_formulario(HORA); ?> </select>
-		:<select name="min"> <?php rellena_formulario(MIN,0,5); ?> </select>
+		<select name="hora"> <?php isset($_POST['hora']) ? rellena_formulario(HORA, $_POST['hora']) : rellena_formulario(HORA); ?> </select>
+		:<select name="min"> <?php isset($_POST['min']) ? rellena_formulario(MIN,$_POST['min'],0,5) : rellena_formulario(MIN,0,0,5); ?> </select>
 	</blockquote>
 	<blockquote>
-		Título:<br><input type="text" name="titulo" /><br>
+		Título:<br><input type="text" name="titulo" value = <?php echo isset($_POST['titulo']) ? $_POST['titulo'] : ' '; ?>><br>
 		Comentario: <br>
-		<textarea rows="4" cols="30" name="coment" style="margin: 2px; min-height: 183px; max-height: 383px;resice:none; max-width:450px; min-width:420px;"></textarea>
+		<textarea rows="4" cols="30" name="coment" style="margin: 2px; min-height: 183px; max-height: 383px;resice:none; max-width:450px; min-width:420px;"><?php echo isset($_POST['coment']) ? $_POST['coment'] : ''; ?></textarea>
 		<br>
 		<input type="hidden" value="100" name="id" />
 		<input type="submit" value="confirmar" name="confirmar" class="sent" />
@@ -78,11 +103,9 @@ function rellena_formulario(){
 	</form>
 </div>
 <?php
-	if(isset($_GET['operacion']) && $_GET['operacion']=='confirmar')
-		echo "<div class='formLS'><h2>Registro</h2>";
-		echo "<br>".$_POST['id']."||\t\t".$_POST['dia']."/".$_POST['mes']."/".$_POST['anno']."\t\t".$_POST['hora'].":".$_POST['min']."\t\t\t<h4>".$_POST['titulo']."</h4>\t".$_POST['coment'];
-		echo "</div>";
-;
+	if(isset($_GET['operacion']) && $_GET['operacion']=='confirmar'){
+		echo formularioText_evento();
+	}
 ?>
 </body>
 </html>
