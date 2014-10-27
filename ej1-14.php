@@ -387,14 +387,15 @@ function crear_tabla($col, $row){
             $style[]= $arg; // no existe tipo de estilo lo añado
         }
     }
-    visualizarTabla($col, $row,$style);
+    
+    visualiza($col, $row,$style);
 }
 
-function visualizarTabla($col, $row,$style){
+function visualiza($col, $row,$style){
     echo "<table border=1; cellspacing=0;><tbody>";
     for($i= 0; $i < $row; $i++)
     {
-        echo "<tr ".$dar_style.">";
+        echo "<tr>";
         for($j= 0; $j < $col; $j++)
         {
             echo "<td style='";
