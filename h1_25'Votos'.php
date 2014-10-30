@@ -15,7 +15,6 @@ $c->dibujar();
 
 <?php
 $average = array_count_values(file('votos.txt', FILE_IGNORE_NEW_LINES));
-
 $max=round((max($average)/10));
 ?>
 
@@ -24,14 +23,12 @@ $max=round((max($average)/10));
 	<tr><td width:10%></td>
 	<?php
 		for($i=1;$i<=$max;$i++){
-			echo "<td width='90%'>".(($i-1)*10)."</td>";
+			echo "<td width=".(90/$max)."%>|".(($i-1)*10)."</td>";
 		}
 		echo "</tr>";
 		foreach ($average as $key => $value) {
-			echo "<tr><td>$key</td><td colspan='".($max+1) ."'><table cellpadding=5px cellspacing=0>";
-				for($j=0;$j<$value;$j++)
-					echo "<td bgcolor='green'></td>";
-
+			echo "<tr><td>$key</td><td colspan='".($max+1) ."'><table width=".($value*$max*1.1)."% cellpadding=5px cellspacing=0>";
+			echo "<td bgcolor='green'>$value</td>";
 			echo "</table></td></tr>";
 		}
 	?>
