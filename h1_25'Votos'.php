@@ -28,28 +28,32 @@ $max=round((max($average)/$base));
 ?>
 
 <table cellspacing=0 style="width:100%; margin:10px;">
-	<tr><th colspan=<?php echo $max+1 ?> >Gráfico de barras</th></tr>
-	<tr><td width=13%></td>
+	<tr><th colspan=<?php echo $max+2 ?> >Gráfico de barras</th></tr>
+	<tr><td width=8%></td>
 	<?php
 		for($i=0;$i<=$max;$i++){
-			echo "<td width=".(85/$base)."% style='border-left: 1px solid #000;'>".(($i)*$base)."</td>";
+			echo "<td width=".(92/$base)."% style='border-left: 1px solid #000;'>".(($i)*$base)."</td>";
 		}
 		echo "</tr>";
 		foreach ($average as $key => $value) {
-			echo "<tr><td>$key - $value - $base</td>";
-			//bloques por base
-			for($j=1;$j<($value/$base);$j++){
-				echo "<td  bgcolor='lightgreen' style='border-left: 1px solid #000;'></td>";
-			}
-			$value=($value%$base);
-			//resto
-			echo "
-			<td style='border-left: 1px solid #000;'>
-					<table width=".($value*85/$base)."% cellpadding='10px' cellspacing=0><tr>";
-				echo "<td bgcolor='lightgreen'></td>";
-			echo "	</tr></table>
-			</td></tr>";
-		}0 
+                    echo "<tr style='height: 30px;'><td align='right'>$key [$value]</td>";
+                    //bloques en base que se colorean
+                    for($j=1;$j<=($value/$base);$j++){
+                            echo "<td   bgcolor='lightgreen' style='border-left: 1px solid #000;border-bottom: 2px solid #fff;border-top: 2px solid #fff;'></td>";
+                    }
+                    //resto
+                    $resto=($value%$base);
+                    if($resto>0)
+                        echo "<td style='border-left: 1px solid #000;'>"
+                            . "<table width=".($resto*92/$base)."% cellpadding='13px' cellspacing='0px'><tr><td bgcolor='lightgreen'></td></tr></table>"
+                            . "</td>";
+                   //finaliza tabla sin colrear
+                    do{
+                        $j++;
+                        echo "<td style='border-left: 1px solid #000;'></td>";
+                    }while($j<=$max);  
+                    echo "</tr>"; //cierro fila 
+		}
 	?>
 </table>
 
