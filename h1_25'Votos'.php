@@ -14,22 +14,41 @@ $c->dibujar();
 	<div style='background: whitesmoke;'>
 
 <?php
+function base($num,$bs){
+	$i=1;
+	do{
+		$num=$num/$bs;
+		$i=$i*$bs;
+	}while($num>$bs);
+	return $i;
+}
 $average = array_count_values(file('votos.txt', FILE_IGNORE_NEW_LINES));
-$max=round((max($average)/10));
+$base=base(max($average),10);
+$max=round((max($average)/$base));
 ?>
 
-<table cellspacing=0 style="width:100%;">
-	<tr><th colspan=<?php echo $max+2 ?> >Gráfico de barras</th></tr>
-	<tr><td width:10%></td>
+<table cellspacing=0 style="width:100%; margin:10px;">
+	<tr><th colspan=<?php echo $max+1 ?> >Gráfico de barras</th></tr>
+	<tr><td width=15%></td>
 	<?php
-		for($i=1;$i<=$max;$i++){
-			echo "<td width=".(90/$max)."%>|".(($i-1)*10)."</td>";
+		for($i=0;$i<$max;$i++){
+			echo "<td width=".(85/$max)."% style='border-left: 1px solid #000;'>".(($i)*$base)."</td>";
 		}
 		echo "</tr>";
 		foreach ($average as $key => $value) {
-			echo "<tr><td>$key</td><td colspan='".($max+1) ."'><table width=".($value*$max*1.1)."% cellpadding=5px cellspacing=0>";
-			echo "<td bgcolor='green'>$value</td>";
-			echo "</table></td></tr>";
+			echo "<tr><td>$key - $value</td>";
+			//bloques por base
+			for($j=1;$j<($value/$base);$j++){
+				echo "<td  bgcolor='lightgreen' style='border-left: 1px solid #000;'></td>";
+			}
+			$value=($value%$base);
+			//resto
+			echo "
+			<td style='border-left: 1px solid #000;'>
+					<table width=".($value*85/$base)."% cellpadding='10px' cellspacing=0><tr>";
+				echo "<td bgcolor='lightgreen'></td>";
+			echo "	</tr></table>
+			</td></tr>";
 		}
 	?>
 </table>
