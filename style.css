@@ -1,4 +1,7 @@
 <style>
+body {
+        font-family: 'OpenSans-Regular.ttf';
+}
 .tab{
 	margin: auto;
 	border: #F50 solid 2px;
@@ -29,7 +32,6 @@
         border: 2px solid #666;
         color: #6DAAF8;
         padding: 15px;
-        font-family: sans-serif;
         font-weight: 700;
         margin: auto;
 }
@@ -60,5 +62,14 @@ padding: 10px;
 }
 
 h2,h4{color:orange;}
+
+.div{
+        width: 500px;
+        background-color: whitesmoke;
+        border: 1px solid #54F;
+        box-shadow: 3px 5px #666;
+        padding: 15px;
+        margin: auto;
+}
 
 </style>

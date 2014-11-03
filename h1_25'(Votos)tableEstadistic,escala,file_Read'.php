@@ -45,7 +45,7 @@ $max=round((max($average)/$base));
 			//resto
 			echo "
 			<td style='border-left: 1px solid #000;'>
-					<table width=".($value*85/$base)."% cellpadding='10px' cellspacing=0><tr>";
+					<table width=".($value*85/$base)."% cellpadding='11px' cellspacing=0><tr>";
 				echo "<td bgcolor='lightgreen'></td>";
 			echo "	</tr></table>
 			</td></tr>";
