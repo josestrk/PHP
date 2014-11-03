@@ -1,7 +1,6 @@
 Peru 
 España 
 España 
-Chile 
 Peru 
 Peru 
 Mexico 
@@ -34,7 +33,9 @@ Peru
 España 
 España 
 Chile 
-Peru Peru 
+Peru 
+España 
+España 
 España 
 España 
 Chile 
@@ -89,7 +90,6 @@ Peru
 Mexico 
 España 
 España 
-
 Peru 
 Mexico 
 España 
