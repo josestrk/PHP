@@ -4,6 +4,7 @@ header("Content-Disposition:inline ; filename=img/fondo.jpeg");
 
 $fuente = "OpenSans-Regular.ttf";
 $texto = $_GET['txt'];
+// repasar $texto = preg_replace('//+\+/', '', $texto);
 
 //$im = imagecreatetruecolor(300, 100);
 $im = imagecreatefromjpeg('img/fondo.jpeg');
@@ -19,13 +20,16 @@ $color = imagecolorallocate($im, 255, 255, 255);
 $width= imagesx($im);
 $heigth= imagesy($im);
 //tamaño de patron
-$x=rand(4,($width/6));
-$y=rand(4,$heigth/3);
+$min=strlen($texto);
+$lit=(strlen($texto)<10) ? strlen($texto)+10:strlen($texto);
+$x=0;
 
 for($i=0;$i<strlen($texto);$i++){
-	$x=$x+rand(15,30)+$i;
-	$y=$y+rand(5,15)+$i;
-	imagefttext($im, rand(20,25), rand(0,269), $x, $y, $color, $fuente, $texto[$i]);
+	$l= rand($lit, ($lit+3));
+	$x=$x+rand($l,($width/strlen($texto)));
+	$y=rand(($l+15),($heigth-($l+15)));
+	
+	imagefttext($im, $l, rand(-45,45), $x, $y, $color, $fuente, $texto[$i]);
 }
 
 // Imprimir la imagen al navegador
