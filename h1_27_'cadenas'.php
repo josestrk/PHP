@@ -19,3 +19,21 @@ for($i=0;$i<2;$i++){
 echo '</center>';
 
 ?>
+<hr>
+<?php
+echo '<center>';
+//árbol
+for ($i=0; $i <= $l ; $i++) { 
+	echo str_pad('', $i, '*', STR_PAD_BOTH)."<br>";
+}
+//tallo
+for($i=1;$i<=2;$i++){
+    echo str_pad('', $i, '*', STR_PAD_BOTH)."<br>";
+}
+//tiesto
+for($i=6;$i>3;$i--){
+    echo str_pad('', $i, '*', STR_PAD_BOTH)."<br>";
+}
+echo '</center>';
+
+?>

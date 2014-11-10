@@ -13,7 +13,7 @@ while($i<=238){
     }
     echo '<tr><th>'.$i.'</th>';
     for($j=$i;$j<=$i+16;$j++){
-        echo '<td>'.$j.'</td>';
+        echo '<td>'.chr($j).'</td>';
     }
     echo '</tr>';
     $i=$j;

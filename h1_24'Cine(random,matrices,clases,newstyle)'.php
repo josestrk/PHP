@@ -22,14 +22,14 @@ class Film{
 	}
 
 	public function printing(){
-		echo '<div style="width:250px; height:400px; border-bottom: 2px groove yellow; background-color:white; margin: 20px 15px;  box-shadow: 10px 10px  60px #666; float: left; overflow-y: auto;overflow-x: hidden;" align="center">
+		echo '<div style="width:30%; height:400px; border-bottom: 2px groove yellow; background: linear-gradient(to right, #a4edfc 0%,#ffffff 49%,#ffffff 51%,#a4edfc 100%); margin: 20px 15px;  box-shadow: 10px 10px  60px #666; float: left; overflow-y: auto;overflow-x: hidden;" align="center">
 		<img src="img/'.$this->img.'" width=240px height=200px><h1 style="color:lightblue">'. $this->titulo .'</h1><blockquote>'. $this->desc .'</blockquote></div>';
 	}
 }
 
 ?>
 </head>
-<body background='img/tx.jpg' style="background-repeat: repeat;">
+<body background='img/tx.jpg' style="background-repeat: repeat; ">
 <?php
 $peliculas=array(
 	new Film('El bosque','bosque.jpg','lorem ipsum colore samsdbew2bewqe'),
@@ -44,7 +44,7 @@ $peliculas=array(
 //pinta cabecera
 $c->dibujar();
 ?>
-<div style="margin:auto">
+<center>
 <?php
 
 //pintar peliculas
@@ -60,6 +60,6 @@ do{
 }while ($cont<3);
 
 ?>
-</div>
+</center>
 </body>
 </html>
