@@ -7,32 +7,21 @@ De todas las películas que tenemos en nuestro cine, en la página inicial debem
 */
 require_once('style.css');
 require_once("h1_21'Clases,constructor'.php");
+
 $c=new Cabecera('Introducir Pelis',"purple","#fff");
-//new Film('El bosque','bosque.jpg','lorem ipsum colore samsdbew2bewqe'),
 
-?>
-</head>
-<body background='img/tx.jpg' style="background-repeat: repeat; ">
+function name_date(){
+	$result = microtime(true)*10000;
+	return $result;
+}
 
-<?php $c->dibujar(); ?> 
-<div class="formLS">
-<form action=<?php echo $_SERVER['PHP_SELF']; ?> method='POST' enctype='multipart/form-data'>
-    Nombre Peli: <input type="text" name="titulo" style="margin:auto;">
-    <br>subir foto: <input name="img" type="file" />
-    <br><textarea name="info" style="margin: 2px; width: 490px; height: 200px;resice:none; max-width:490px; min-width:490px;"></textarea>
-    <br><input type='submit' value='Enviar' class='sb' />
-</form>
-</div>
-<div style="float:none;"></div>
-<div class="div">
+function UpPhoto($dir,$nombre){
+	$target_dir = $dir;
+	$target_file = $target_dir . $nombre ;
 
-<?php
-
-if (isset($_POST['titulo']) && isset($_POST['img']) && isset($_POST['info'])) {
-	$target_dir = "img/";
-	$target_file = $target_dir . basename($_FILES["img"]["name"]);
+	$imageFileType = pathinfo(basename($_FILES["img"]["name"]),PATHINFO_EXTENSION);
 	$uploadOk = 1;
-	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
 	// Check if image file is a actual image or fake image
 	if(isset($_POST["submit"])) {
 	    $check = getimagesize($_FILES["img"]["tmp_name"]);
@@ -44,7 +33,6 @@ if (isset($_POST['titulo']) && isset($_POST['img']) && isset($_POST['info'])) {
 	        $uploadOk = 0;
 	    }
 	}
-
 	// Check if file already exists
 	if (file_exists($target_file)) {
 	    echo "Sorry, file already exists.";
@@ -60,23 +48,67 @@ if (isset($_POST['titulo']) && isset($_POST['img']) && isset($_POST['info'])) {
 	    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 	    $uploadOk = 0;
 	}
+
 	// Check if $uploadOk is set to 0 by an error
 	if ($uploadOk == 0) {
 	    echo "Sorry, your file was not uploaded.";
-	// if everything is ok, try to upload file
+	    return false;
 	} else {
 	    if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
 	        echo "The file ". basename( $_FILES["img"]["name"]). " has been uploaded.";
 	    } else {
 	        echo "Sorry, there was an error uploading your file.";
+	        return false;
 	    }
+	    return true;
 	}
 }
 
-
+function createFilm($tit,$img,$text){
+	$file="cartelera.txt";
+	$contenido="new Film('$tit','$img','$text');";
+		if (is_writable($file)) {
+			if (!$gestor = fopen($file, 'a')) {
+		         echo "No se puede abrir el archivo ($file)";
+		         exit;
+		    }
+		    if (fwrite($gestor, $contenido) === FALSE) {
+		        echo "No se puede escribir en el archivo ($file)";
+		        exit;
+		    }
+			echo "Éxito, se escribió ($contenido) en el archivo ($file)";
+	    	fclose($gestor);
+	    } else {
+	    	echo "El archivo $file no es escribible";
+		}
+}
 
 ?>
+</head>
+<body background='img/tx.jpg' style="background-repeat: repeat; ">
 
+<?php $c->dibujar(); ?> 
+<div class="formLS">
+<form action=<?php echo $_SERVER['PHP_SELF']; ?> method='POST' enctype='multipart/form-data'>
+    Nombre Peli: <input type="text" name="titulo" style="margin:auto;">
+    <br>subir foto: <input name="img" type="file" />
+    <br><textarea name="info" style="margin: 2px; width: 490px; height: 200px;resice:none; max-width:490px; min-width:490px;"></textarea>
+    <br><input type='submit' value='Enviar' class='sb' />
+</form>
+<a href="h1_30_2'vieuFilms_Random'.php"><button class='sb' />CARTELERA</a>
+</div>
+<div style="float:none;"></div>
+<div class="div" style="float: left;">
+
+<?php
+if (isset($_POST['titulo']) && isset($_POST['info'])) {
+	$imageFileType = pathinfo(basename($_FILES["img"]["name"]),PATHINFO_EXTENSION);
+	$nombre = name_date().".".$imageFileType;
+	if(UpPhoto("cartelera/",$nombre)){
+		createFilm($_POST['titulo'],$nombre,$_POST['info']);
+	}
+}
+?>
 </div>
 
 </body>
