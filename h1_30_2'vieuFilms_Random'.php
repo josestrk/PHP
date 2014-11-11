@@ -23,7 +23,7 @@ class Film{
 
 	public function printing(){
 		echo '<div style="width:30%; height:400px; border-bottom: 2px groove yellow; background: linear-gradient(to right, #a4edfc 0%,#ffffff 49%,#ffffff 51%,#a4edfc 100%); margin: 20px 15px;  box-shadow: 10px 10px  60px #666; float: left; overflow-y: auto;overflow-x: hidden;" align="center">
-		<img src="img/'.$this->img.'" width=240px height=200px><h1 style="color:lightblue">'. $this->titulo .'</h1><blockquote>'. $this->desc .'</blockquote></div>';
+		<img src="cartelera/'.$this->img.'" width=240px height=200px><h1 style="color:lightblue">'. $this->titulo .'</h1><blockquote>'. $this->desc .'</blockquote></div>';
 	}
 }
 
@@ -32,22 +32,20 @@ class Film{
 <body background='img/tx.jpg' style="background-repeat: repeat; ">
 <?php
 
-$myfile=fopen("cartelera.txt","r") or die;
+$myfile= @fopen("cartelera.txt","r") or die;
 $array=array();
 $i=0;
 
-//llamar objeto TODO
-while(!feof($myfile)){
-	$a = fgetc($myfile);
-	if($a!= ";"  && !feof($myfile)){
-		$array[$i].=$a;
-	}else{
-		$i++;
-
+if($myfile){
+	while(($a = fgets($myfile)) !== false){
+		$a = explode("\\,", $a);
+		array_push($array, (new Film ($a[0],$a[1],$a[2])));
 	}
+	if (!feof($myfile)) {
+        echo "Error: unexpected fgets() fail\n";
+    }
+    fclose($myfile);
 }
-
-var_dump($array);
 
 
 //pinta cabecera

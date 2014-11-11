@@ -66,7 +66,7 @@ function UpPhoto($dir,$nombre){
 
 function createFilm($tit,$img,$text){
 	$file="cartelera.txt";
-	$contenido="new Film('$tit','$img','$text');";
+	$contenido="$tit\,$img\,$text\n";
 		if (is_writable($file)) {
 			if (!$gestor = fopen($file, 'a')) {
 		         echo "No se puede abrir el archivo ($file)";
@@ -96,6 +96,7 @@ function createFilm($tit,$img,$text){
     <br><input type='submit' value='Enviar' class='sb' />
 </form>
 <a href="h1_30_2'vieuFilms_Random'.php"><button class='sb' />CARTELERA</a>
+<a href="h1_24'Cine(random,matrices,clases,newstyle)'.php"><button class='sb'>CARTELERA Random 24 </button></a>
 </div>
 <div style="float:none;"></div>
 <div class="div" style="float: left;">
@@ -105,7 +106,9 @@ if (isset($_POST['titulo']) && isset($_POST['info'])) {
 	$imageFileType = pathinfo(basename($_FILES["img"]["name"]),PATHINFO_EXTENSION);
 	$nombre = name_date().".".$imageFileType;
 	if(UpPhoto("cartelera/",$nombre)){
-		createFilm($_POST['titulo'],$nombre,$_POST['info']);
+		$tittle= htmlspecialchars(nl2br($_POST['titulo']));
+		$inf= htmlspecialchars(nl2br($_POST['info']));
+		createFilm($tittle,$nombre,$inf);
 	}
 }
 ?>
