@@ -32,7 +32,7 @@ class Film{
 <body background='img/tx.jpg' style="background-repeat: repeat; ">
 <?php
 
-$myfile= @fopen("cartelera.txt","r") or die;
+$myfile= @fopen("cartelera/cartelera.txt","r") or die;
 $array=array();
 $i=0;
 

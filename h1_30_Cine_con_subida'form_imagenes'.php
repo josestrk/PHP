@@ -39,7 +39,7 @@ function UpPhoto($dir,$nombre){
 	    $uploadOk = 0;
 	}
 	// Check file size
-	if ($_FILES["img"]["size"] > 500000) {
+	if ($_FILES["img"]["size"] > 50000000) {
 	    echo "Sorry, your file is too large.";
 	    $uploadOk = 0;
 	}
@@ -65,7 +65,7 @@ function UpPhoto($dir,$nombre){
 }
 
 function createFilm($tit,$img,$text){
-	$file="cartelera.txt";
+	$file="cartelera/cartelera.txt";
 	$contenido="$tit\,$img\,$text\n";
 		if (is_writable($file)) {
 			if (!$gestor = fopen($file, 'a')) {
@@ -85,14 +85,14 @@ function createFilm($tit,$img,$text){
 
 ?>
 </head>
-<body background='img/tx.jpg' style="background-repeat: repeat; ">
+<body style="backgorund: url('img/tx.jpg');background-repeat: repeat; ">
 
 <?php $c->dibujar(); ?> 
 <div class="formLS">
 <form action=<?php echo $_SERVER['PHP_SELF']; ?> method='POST' enctype='multipart/form-data'>
-    Nombre Peli: <input type="text" name="titulo" style="margin:auto;">
-    <br>subir foto: <input name="img" type="file" />
-    <br><textarea name="info" style="margin: 2px; width: 490px; height: 200px;resice:none; max-width:490px; min-width:490px;"></textarea>
+    <h3>Nombre Peli: </h3><input type="text" name="titulo" style="margin:auto;">
+    <br><h3>subir foto: </h3><input name="img" type="file" />
+    <br><h3>Comentario</h3><textarea name="info" style="margin: 2px; width: 490px; height: 200px;resice:none; max-width:490px; min-width:490px;"></textarea>
     <br><input type='submit' value='Enviar' class='sb' />
 </form>
 <a href="h1_30_2'vieuFilms_Random'.php"><button class='sb' />CARTELERA</a>
@@ -109,6 +109,7 @@ if (isset($_POST['titulo']) && isset($_POST['info'])) {
 		$tittle= htmlspecialchars(nl2br($_POST['titulo']));
 		$inf= htmlspecialchars(nl2br($_POST['info']));
 		createFilm($tittle,$nombre,$inf);
+		echo "<br><h5>new Film('$tittle','$nombre','$inf')</h5>";
 	}
 }
 ?>
