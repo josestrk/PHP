@@ -85,7 +85,7 @@ function createFilm($tit,$img,$text){
 
 ?>
 </head>
-<body style="backgorund: url('img/tx.jpg');background-repeat: repeat; ">
+<body style="background: url('img/tx.jpg');background-repeat: repeat; ">
 
 <?php $c->dibujar(); ?> 
 <div class="formLS">
@@ -93,7 +93,7 @@ function createFilm($tit,$img,$text){
     <h3>Nombre Peli: </h3><input type="text" name="titulo" style="margin:auto;">
     <br><h3>subir foto: </h3><input name="img" type="file" />
     <br><h3>Comentario</h3><textarea name="info" style="margin: 2px; width: 490px; height: 200px;resice:none; max-width:490px; min-width:490px;"></textarea>
-    <br><input type='submit' value='Enviar' class='sb' />
+    <br><input type='submit' value='Enviar' class='sb' style="width:300px"/>
 </form>
 <a href="h1_30_2'vieuFilms_Random'.php"><button class='sb' />CARTELERA</a>
 <a href="h1_24'Cine(random,matrices,clases,newstyle)'.php"><button class='sb'>CARTELERA Random 24 </button></a>
