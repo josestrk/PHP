@@ -72,13 +72,12 @@ table, th, tr, td {
 
 .formLS{
         width: 500px;
-        float:left;
         background-color: #EEE;
         border: 2px solid #666;
         color: #6DAAF8;
         padding: 15px;
         font-weight: 700;
-        margin: 10px;
+        margin: 10px auto;
 }
 .sb{
 margin-top: 20px;
@@ -96,9 +95,15 @@ color: red;
 font-weight: 700;
 text-align: center;
 padding: 10px;
+background-color: ghostwhite;
+}
+
+.alertNULL{
+display: none;
 }
 
 .alertOK{
+background-color: ghostwhite;
 border: 2px solid lightgreen;
 color: green;
 font-weight: 700;
