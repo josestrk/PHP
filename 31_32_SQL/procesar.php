@@ -12,7 +12,7 @@ if(isset($_POST['titulo']) && isset($_POST['autor'])){
 	if (!$resultado = $enlace->query($sql)) {
 		echo '<div class="alertFAIL">Error</div>';
 	}else{
-		echo '<div class="alertOK">Insertado con éxito</div>';
+		echo '<div class="alertOK">Insertado con exito</div>';
 	}
 
 	$sql = "SELECT id,titulo,autor FROM libros";
@@ -24,7 +24,7 @@ if(isset($_POST['titulo']) && isset($_POST['autor'])){
 		echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr>";
 	}
 	echo "</table>";
-	$result->free();
+	$selection->free();
 	$enlace->close();
 }
 ?>

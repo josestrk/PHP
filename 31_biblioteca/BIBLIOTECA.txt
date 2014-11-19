@@ -1,0 +1,413 @@
+﻿"La música del azar";"Paul Auster";"Norteamericano";1
+"Son más los que mueren de desamor";"Saul Bellow";"Norteamericano";2
+"Máscara de Ripley";"Patricia Highsmith";"Británico";3
+"El amigo américano";"Patricia Highsmith";"Británico";4
+"Comedias eróticas";"Marco Vassi";"Italiano";5
+"Asuntos Exteriores";"Alison Lurie";"Británico";6
+"Solal";"Albert Cohen";"Norteamericano";7
+"La insoportable levedad del ser";"Milan Kundera";"resto Europa";8
+"El inocente";"Ian McEwan";"Británico";9
+"Amor y amistad";"Alison Lurie";"Británico";10
+"Retorno a Brideshead";"Evelyn Waugh";"Británico";11
+"Amor Fraterno";"Pete Dexter";"Norteamericano";12
+"Exito";"Martin Amis";"Británico";13
+"Infanta";"Bodo Kirchhoff";"resto Europa";14
+"Heredaras la Tierra";"Jane Smiley";"Norteamericano";15
+"Conejo rico";"John Updike";"Norteamericano";16
+"La Novela de la Lujuria";"Anónimo";;17
+"Campos de Londres";"Martin Amis";"Británico";18
+"Memorias de la admon. Ford";"John Updike";"Norteamericano";19
+"Aflicción";"R. Banks";"Norteamericano";20
+"La Cartuja de Parma";"Sthendal";"Británico";21
+"La virtud sobre Lorin Jones";"Alison Lurie";"Británico";22
+"El testigo ocular";"Ernst Weiss";"Alemán";23
+"El hombre del piano";"Anthony Burguess";"Británico";24
+"La edad de la inocencia";"Edith Warton";"Norteamericano";25
+"Tras los pasos de Ripley";"Patricia Highsmith";"Británico";26
+"La isla de los Caballeros";"Toni Morrison";"Norteamericano";27
+"Del amor y otros demonios";"G. García Márquez";"Hispanoamericano";28
+"El secreto de Lady Brandon";"Quentin Bell";"Norteamericano";29
+"Sula";"Toni Morrison";"Norteamericano";30
+"Servidumbre Humana";"Somerset Maughan";"Norteamericano";31
+"Memphis";"Peter Taylor";"Norteamericano";32
+"Cuentos rusos";"Varios rusos";"Ruso";33
+"El mundo según Garp";"John Irving";"Norteamericano";34
+"Padres e hijos";"Ivy Compton-Burnett";"Norteamericano";35
+"Una princesa en Berlín";"A. R. G. Solmssen";"Alemán";36
+"El Hotel New Hampshire";"John Irving";"Norteamericano";37
+"El mundo al atardecer";"Cristopher Isherwood";"Británico";38
+"El angel que nos mira";"Thomas Wolfe";"Norteamericano";39
+"Papa Goriot";"Honorato de Balzac";"Francés";40
+"La fundación musical";"Paul Micou";"Francés";41
+"El artista encubierto";"Paul Micou";"Francés";42
+"El parque de los ciervos";"Norman Mailer";"Norteamericano";43
+"Brasil";"John Updike";"Norteamericano";44
+"Premeditación";"Francis Iles";"Francés";45
+"El cabra";"Alexandre Jardin";"Francés";46
+"Chicago Loop";"Paul Theroux";"Norteamericano";47
+"Calendas griegas";"Gesualdo Bufalino";"Italiano";48
+"Leviatan";"Paul Auster";"Norteamericano";49
+"El guardián entre el centeno";"J. D. Salinger";"Norteamericano";50
+"El mensajero";"L. P. Hartley";"Norteamericano";51
+"Por el camino de Swan: Combray";"Marcel Proust";"Francés";52
+"El buda de los suburbios";"Hanif Kureishi";"Británico";53
+"Un puñado de polvo";"Evelyn Waugh";"Británico";54
+"American psicho";"Bret Easton Ellis";"Norteamericano";55
+"El Palacio de la Luna";"Paul Auster";"Norteamericano";56
+"Malena es un nombre de tango";"Almudena Grandes";"Español";57
+"Plegarias Atendidas";"Truman Capote";"Norteamericano";58
+"Soledad de fondo";"Anita Brookner";"Norteamericano";59
+"Mientras la ciudad duerme";"Frank Yerby";"Norteamericano";60
+"Tres Continentes";"R. Prawer Jhabvala";"Asiatico";61
+"No se lo digas a nadie";"Jaime Bayly";"Hispanoamericano";62
+"Corre hombre";"Chester Himes";"Norteamericano";63
+"Ni un pelo de tonto";"Richard Russo";"Norteamericano";64
+"Amores iguales";"David Leavitt";"Británico";65
+"El album negro";"Hanif Kureishi";"Británico";66
+"Menos que cero";"Bret Easton Ellis";"Norteamericano";67
+"La esposa del Dios del Fuego";"Ami Tan";"Asiatico";68
+"Todos los muertos tienen la misma piel";"Boris Vian";"Francés";69
+"Antes de conocernos";"Julian Barnes";"Británico";70
+"El Consejo de Egipto";"Leonardo Sciascia";"Italiano";71
+"Terapia";"David Lodge";"Británico";72
+"El loro de Flaubert";"Julian Barnes";"Británico";73
+"La noche mil dos";"Joseph Roth";"Alemán";74
+"Corre, Conejo";"John Updike";"Norteamericano";75
+"La piel del tambor";"Arturo Pérez Reverte";"Español";76
+"Regalo de la casa";"Juan Madrid";"Español";77
+"La información";"Martin Amis";"Británico";78
+"Buen trabajo";"David Lodge";"Británico";79
+"Un señor muy respetable";"Naguib Mahfuz";"Asiatico";80
+"Nueve cuentos";"J. D. Salinger";"Norteamericano";81
+"Historias de Pat Hobby";"F. Scott Fitzgerald";"Norteamericano";82
+"Escritos de un viejo indecente";"Charles Bukowski";"Norteamericano";83
+"El gran Gatsby";"F. Scott Fitzgerald";"Norteamericano";84
+"Bajo las ruedas";"Herman Hesse";"Alemán";85
+"Los infortunios de la virtud";"Marques de Sade";"Francés";86
+"El mundo es un pañuelo";"David Lodge";"Británico";87
+"Viento del este, viento del oeste";"Pearl S. Buck";"Norteamericano";88
+"La Catedral";"Vicente Blasco Ibañe";"Español";89
+"El muchacho persa";"Mary Renault";"Británico";90
+"Patrañas";"Will Self";"Británico";91
+"Suave es la noche";"F. Scott Fitzgerald";"Norteamericano";92
+"El Gatopardo";"G. T. di Lampedusa";"Italiano";93
+"Los Confidentes";"Bret Easton Ellis";"Norteamericano";94
+"Que se mueran los feos";"Boris Vian";"Francés";95
+"Orgullo y prejuicio";"Jane Austen";"Británico";96
+"Una Comedia Ligera";"Eduardo Mendoza";"Español";97
+"Cuando fui mortal (relatos)";"Javier Marias";"Español";98
+"El periodista deportivo";"Richard Ford";"Norteamericano";99
+"Dos damas muy serias";"Jane Bowles";"Británico";100
+"El agente secreto";"Joseph Conrad";"Británico";101
+"La verde mansión de los Jarret";"Frank Yerby";"Norteamericano";102
+"El amante del volcan";"Susan Sontag";"Norteamericano";103
+"Elogio de la madastra";"Mario Vargas Llosa";"Hispanoamericano";104
+"Historia del mundo en diez capitulos...";"Julian Barnes";"Británico";105
+"Nubosidad variable";"Carmen Martín Gaite";"Español";106
+"La epopeya del bebedor de agua";"John Irving";"Norteamericano";107
+"Las voces de Marrakech";"Elías Canetti";"Italiano";108
+"El hombre que miraba pasar los trenes";"Georges  Simenon";"Británico";109
+"La feria del asilo";"John Updike";"Norteamericano";110
+"Fuerte como la muerte";"Guy de Maupassant";"Francés";111
+"Donde termina el camino";"John Updike";"Norteamericano";112
+"Miedo a volar";"Erika Jong";"Norteamericano";113
+"El precio era alto (relatos)";"F. Scott Fitzgerald";"Norteamericano";114
+"El planeta de Mr. Sammler";"Saul Bellow";"Norteamericano";115
+"La máquina del amor sagrado y profano";"Iris Murdoch";"Británico";116
+"Los Buddenbrook";"Thomas Mann";"Alemán";117
+"El Teatro de Sabbath";"Philip Roth";"Norteamericano";118
+"El Plan Infinito";"Isabel Allende";"Hispanoamericano";119
+"El Dia de la Independencia";"Richard Ford";"Norteamericano";120
+"Nada";"Carmen Laforet";"Español";121
+"El lamento de Portnoy";"Philip Roth";"Norteamericano";122
+"Nadie que me acompañe";"Nadine Gordimer";"Africano";123
+"Lo que queda por vivir";"John Updike";"Norteamericano";124
+"Zalacaín el Aventurero";"Pio Baroja";"Español";125
+"Galatea 2.2";"Richard Powers";"Norteamericano";126
+"¡Noticia bomba!";"Evelyn Waugh";"Británico";127
+"La Taberna";"Emile Zola";"Francés";128
+"La marquesa de Gange";"Marques de Sade";"Francés";129
+"Réquiem por Brown";"James Ellroy";"Norteamericano";130
+"Los Indiferentes";"Alberto Moravia";"Italiano";131
+"Niebla";"Miguel de Unamuno";"Español";132
+"La cabeza perdida de Damasceno M.";"Antonio Tabucchi";"Italiano";133
+"El desorden de tu nombre";"Juan José Millás";"Español";134
+"Mensaka";"José Angel Mañas";"Español";135
+"Nocturno hindú";"Antonio Tabucchi";"Italiano";136
+"Nuestro juego";"John Lecarre";"Británico";137
+"El alquilado";"L. P. Hartley";"Norteamericano";138
+"Pronto";"Elmore Leonard";"Norteamericano";139
+"El americano impasible";"Graham Greene";"Británico";140
+"Bajo la red";"Iris Murdoch";"Británico";141
+"El gran desierto";"James Ellroy";"Norteamericano";142
+"El bosque de la larga espera";"Hella S. Hasse";"resto Europa";143
+"Lulu, una incognita";"Raymond Kennedy";"Norteamericano";144
+"El revés de la trama";"Graham Greene";"Británico";145
+"Atormentada tierra";"John Steinbeck";"Norteamericano";146
+"Lord Jim";"Joseph Conrad";"Británico";147
+"El jardín de los Finzi-Contini";"Giorgio Bassani";"Italiano";148
+"La belleza de los lirios";"John Updike";"Norteamericano";149
+"Entre naranjos";"Vicente Blasco Ibañe";"Español";150
+"La casa de Dios";"Samuel Shen";"Norteamericano";151
+"El lapiz del carpintero";"Manuel Rivas";"Español";152
+"Ensayo sobre la ceguera";"José Saramago";"resto Europa";153
+"Corazón tan blanco";"Javier Marias";"Español";154
+"Mi familia y otros animales";"Gerard Durrell";"Británico";155
+"El orden alfabético";"Juan José Millás";"Español";156
+"Jazz Blanco";"James Ellroy";"Norteamericano";157
+"El monje";"Matthew G. Lewis";"Británico";158
+"La educación sentimental";"Gustave Flaubert";"Francés";159
+"La dalia negra";"James Ellroy";"Norteamericano";160
+"Guerra y Paz";"Leon Tolstoy";"Ruso";161
+"Pastoral Americana";"Philip Roth";"Norteamericano";162
+"Barras y estrellas";"William Boyd";"Británico";163
+"Paddy Clarke, Ja, Ja, Ja";"Roddy Doyle";"resto Europa";164
+"El corazón de las tinieblas";"Joseph Conrad";"Británico";165
+"Bouvard y Pécuchet";"Gustave Flaubert";"Francés";166
+"Los inconsolables";"Kazuo Ishiguro";"Asiatico";167
+"O Cesar o nada";"Manuel Vázquez Monta";"Español";168
+"Las partículas elementales";"Michel Houellebecq";"Francés";169
+"Hacia el final del tiempo";"John Updike";"Norteamericano";170
+"Hablándo del asunto";"Julian Barnes";"Británico";171
+"América";"James Ellroy";"Norteamericano";172
+"Un buen hombre en africa";"William Boyd";"Británico";173
+"Tomatelo con calma";"Elmore Leonard";"Norteamericano";174
+"Single & Single";"John Lecarre";"Británico";175
+"Fuera del cascarón";"David Lodge";"Británico";176
+"B de Bestias";"Sue Grafton";"Norteamericano";177
+"A de Adulterio";"Sue Grafton";"Norteamericano";178
+"Mis rincones oscuros";"James Ellroy";"Norteamericano";179
+"Pantaleon y las Visitadoras";"Mario Vargas Llosa";"Hispanoamericano";180
+"El eco negro";"Michael Connelly";"Norteamericano";181
+"Joe la Brava";"Elmore Leonard";"Norteamericano";182
+"Juegos Funerarios";"Mary Renault";"Británico";183
+"Una investigación filosofica";"Philip Kerr";"Británico";184
+"El topo";"John Lecarre";"Británico";185
+"Todo un hombre";"Tom Wolfe";"Norteamericano";186
+"El cine según Hitchcock";"François Truffaut";"Francés";187
+"Bandidos";"Elmore Leonard";"Norteamericano";188
+"Gertrudis y Claudio";"John Updike";"Norteamericano";189
+"Cuba libre";"Elmore Leonard";"Norteamericano";190
+"Tormenta de verano";"JuanGarcía Hortelano";"Español";191
+"Blues de los sueños rotos";"Walter Mosley";"Norteamericano";192
+"La ciudad y los perros";"Mario Vargas Llosa";"Hispanoamericano";193
+"La balsa de piedra";"José Saramago";"resto Europa";194
+"El suelo bendito";"Oscar Esquivias";"Español";195
+"La señorita Smila";"Peter Hoeg";"resto Europa";196
+"la tarde azul";"William Boyd";"Británico";197
+"Me casé con un comunista";"Philip Roth";"Norteamericano";198
+"La colina de los suicidios";"James Ellroy";"Norteamericano";199
+"Parejas";"John Updike";"Norteamericano";200
+"La carta esferica";"Arturo Pérez Reverte";"Español";201
+"La mancha humana";"Philip Roth";"Norteamericano";202
+"A salto de mata";"Paul Auster";"Norteamericano";203
+"A causa de la noche";"James Ellroy";"Norteamericano";204
+"Soldados de Salamina";"Javier Cercas";"Español";205
+"Experiencia";"Martin Amis";"Británico";206
+"Trilogia de Nueva York";"Paul Auster";"Norteamericano";207
+"Una mujer dificil";"John Irving";"Norteamericano";208
+"Niños muertos";"Martin Amis";"Británico";209
+"Los perros ladran";"Truman Capote";"Norteamericano";210
+"Sharpe y el Aguila del Imperio";"Bernard Cornwell";"Británico";211
+"Rojo Brasil";"Christophe Rufin";"Francés";212
+"Cronica Personal";"Joseph Conrad";"Británico";213
+"Sangre en la luna";"James Ellroy";"Norteamericano";214
+"El Abisinio";"Christophe Rufin";"Francés";215
+"La ausencia de Blanca";"Antonio Muñoz Molina";"Español";216
+"Conversaciones con Billy Wilder";"Cameron Crowe";"Norteamericano";217
+"La trampa maestra";"Michael Frayn";"Británico";218
+"El mejor de los mundos";"Quim Monzó";"Español";219
+"Historias de cronopios y famas";"Julio Cortazar";"Hispanoamericano";220
+"El tren nocturno";"Martin Amis";"Británico";221
+"Prólogos con un prólogo de prólogos";"Jorge Luis Borges";"Hispanoamericano";222
+"Inglaterra, Inglaterrra";"Julian Barnes";"Británico";223
+"Trafalgar";"Jose Luis Corral";"Español";224
+"El Hereje";"Miguel Delibes";"Español";225
+"Dublineses";"James Joyce";"resto Europa";226
+"Plataforma";"Michel Houellebecq";"Francés";227
+"El jardinero fiel";"John Lecarre";"Británico";228
+"El Temblor de la falsificación";"Patricia Highsmith";"Británico";229
+"Empire Falls";"Richard Russo";"Norteamericano";230
+"Memorias";"Gore Vidal";"Norteamericano";231
+"El libro de las Ilusiones";"Paul Auster";"Norteamericano";232
+"El viaje vertical";"Enrique Vila-Matas";"Español";233
+"El bisturí de Darwin";"Dan Simmons";"Norteamericano";234
+"Alta fidelidad";"Nick Hornby";"Británico";235
+"Los galeones del Rey";"José Calvo Poyato";"Español";236
+"La dama de blanco";"Wilkie Collins";"Británico";237
+"La falsa pista";"Henning Mankell";"resto Europa";238
+"El filo de la navaja";"Somerset Maughan";"Norteamericano";239
+"La carrera del honor";"Lindsey Davis";"Británico";240
+"El alquimista impaciente";"Lorenzo Silva";"Español";241
+"La cuarta mano";"John Irving";"Norteamericano";242
+"El oficio:Un escritor, sus colegas y ...";"Philip Roth";"Norteamericano";243
+"Las correciones";"Jonathan Franzen";"Norteamericano";244
+"Expiacion";"Ian McEwan";"Británico";245
+"Mar gruesa";"Martin Amis";"Británico";246
+"La cuadratura del Circulo";"Alvaro Pombo";"Español";247
+"Sobre la historia natural de la destrucc";"W. G. Sebald";"Alemán";248
+"Con lo puesto";"Alan Bennett";"Británico";249
+"La ceremonia del masaje";"Alan Bennett";"Británico";250
+"Nostromo";"Joseph Conrad";"Británico";251
+"Conversaciones";"Jaime Gil de Biedma";"Español";252
+"Alrededores";"Alvaro Pombo";"Español";253
+"El edredón de marmol";"David Leavitt";"Británico";254
+"Pretérito Imperfecto";"C. Castilla del Pino";"Español";255
+"Desgracia";"J. M. Coetzee";"Africano";256
+"Historia de dos ciudades";"Charles Dickens";"Británico";257
+"Robinson Crusoe";"Daniel Defoe";"Francés";258
+"Adios a Berlin";"Cristopher Isherwood";"Británico";259
+"El arte de la Ficción";"David Lodge";"Británico";260
+"Que has hecho con mi pais tio";"Michael Moore";"Norteamericano";261
+"Páginas impares";"Juan Benet";"Español";262
+"Milenium I";"Manuel Vázquez Monta";"Español";263
+"Sub rosa";"Juan Benet";"Español";264
+"Milenium II";"Manuel Vázquez Monta";"Español";265
+"Las lecciones de las cosas";"Luis Mateo Díez";"Español";266
+"Escupire sobre vuestra tumba";"Boris Vian";"Francés";267
+"El secuestro de Miss Blandish";"James Hadley Chase";"Norteamericano";268
+"Los hermanos Rico";"Georges  Simenon";"Británico";269
+"Ciudad veintisiete";"Jonathan Franzen";"Norteamericano";270
+"Busca mi rostro";"John Updike";"Norteamericano";271
+"Herzog";"Saul Bellow";"Norteamericano";272
+"La sombra del viento";"Carlos Ruiz Zafón";"Español";273
+"La mascara de Dimitrios";"Eric Ambler";"Norteamericano";274
+"La mirada inocente";"Georges  Simenon";"Británico";275
+"Preguntale al polvo";"John Fante";"Norteamericano";276
+"1.280 almas";"Jim Thompson";"Norteamericano";277
+"Por el pasado lloraras";"Chester Himes";"Norteamericano";278
+"Cuentos reunidos";"Saul Bellow";"Norteamericano";279
+"La casa del Olivo";"C. Castilla del Pino";"Español";280
+"La victima";"Saul Bellow";"Norteamericano";281
+"El lector";"Bernhard Schlink";"Alemán";282
+"Diarios";"John Cheever";"Norteamericano";283
+"La guerra contra el cliche";"Martin Amis";"Británico";284
+"La hermandad de la uva";"John Fante";"Norteamericano";285
+"Las aventuras de Augie March";"Saul Bellow";"Norteamericano";286
+"La velocidad de la Luz";"Javier Cercas";"Español";287
+"Barras y estrellas";"William Boyd";"Británico";288
+"Un buen hombre en Africa";"William Boyd";"Británico";289
+"La negra noche";"Iris Murdoch";"Británico";290
+"En la frontera";"Cormac  McCarthy";"Norteamericano";291
+"Islas a la deriva";"Ernest Hemingway";"Norteamericano";292
+"Las costumbres del pais";"Edith Warton";"Norteamericano";293
+"El mar, el mar";"Iris Murdoch";"Británico";294
+"Juliano el apostata";"Gore Vidal";"Norteamericano";295
+"Operación Shylock";"Philip Roth";"Norteamericano";296
+"Aventura equinocial Lope de Aguirre";"Ramon J. Sender";"Español";297
+"El invierno del decano";"Saul Bellow";"Norteamericano";298
+"Zuckerman encadenado";"Philip Roth";"Norteamericano";299
+"El hombre lento";"J. M. Coetzee";"Africano";300
+"Yo Claudio";"Robert Graves";"Británico";301
+"Brooklyn Follies";"Paul Auster";"Norteamericano";302
+"Perro Callejero";"Martin Amis";"Británico";303
+"Desayuno con diamantes";"Truman Capote";"Norteamericano";304
+"Duluth";"Gore Vidal";"Norteamericano";305
+"El hombre sin rostro";"Henning Mankell";"resto Europa";306
+"Son mas los que mueren de desamor";"Saul Bellow";"Norteamericano";307
+"Amigos, amantes";"Iris Murdoch";"Británico";308
+"Meridiano sangriento";"Cormac  McCarthy";"Norteamericano";309
+"EL legado de Humboldt";"Saul Bellow";"Norteamericano";310
+"La renuncia";"Edith Warton";"Norteamericano";311
+"Tokio blues";"Haruki Murakami";"Asiatico";312
+"Desde lo mas profundo";"Cristopher Isherwood";"Británico";313
+"Todos los caballos bellos";"Cormac  McCarthy";"Norteamericano";314
+"Ravelstein";"Saul Bellow";"Norteamericano";315
+"Todo Cuenta (Ensayos)";"Saul Bellow";"Norteamericano";316
+"Memorias de un Nomada";"Paul Bowles";"Norteamericano";317
+"La geometria del amor (relatos)";"John Cheever";"Norteamericano";318
+"El enigma";"Josefina Aldecoa";"Español";319
+"Arthur & George";"Julian Barnes";"Británico";320
+"Sabado";"Ian McEwan";"Británico";321
+"El sueño de Bruno";"Iris Murdoch";"Británico";322
+"La casa del silencio";"Orhan Pamuk";"resto Europa";323
+"Al sur de la frontera";"Haruki Murakami";"Asiatico";324
+"Myra Breckinridge";"Gore Vidal";"Norteamericano";325
+"La contravida";"Philip Roth";"Norteamericano";326
+"A este lado del paraiso";"F. Scott Fitzgerald";"Norteamericano";327
+"La hora estelar de los asesinos";"Pavel Kohout";"resto Europa";328
+"Hombre en suspenso";"Saul Bellow";"Norteamericano";329
+"Un hombre soltero";"Cristopher Isherwood";"Británico";330
+"La conjura contra América";"Philip Roth";"Norteamericano";331
+"El pintor de batallas";"Arturo Pérez Reverte";"Español";332
+"Antes de que hiele";"Henning Mankell";"resto Europa";333
+"Terrorista";"John Updike";"Norteamericano";334
+"A todo riesgo";"Richard Russo";"Norteamericano";335
+"Henderson el rey de la lluvia";"Saul Bellow";"Norteamericano";336
+"La suerte de Jim";"Kingsley Amis";"Británico";337
+"La posibilidad de una isla";"Michel Houellebecq";"Francés";338
+"Chesil Beach";"Ian McEwan";"Británico";339
+"El profesor del deseo";"Philip Roth";"Norteamericano";340
+"Los seres queridos";"Evelyn Waugh";"Británico";341
+"Accion de Gracias";"Richard Ford";"Norteamericano";342
+"El asombroso viaje de Pomponio Flato";"Eduardo Mendoza";"Español";343
+"Dormir al sol";"Adolfo Bioy Casares";"Hispanoamericano";344
+"La elegancia del erizo";"Muriel Barbery";"Francés";345
+"Sin respiro";"William Boyd";"Británico";346
+"Solsticio";"Joyce Carol Oates";"Norteamericano";347
+"Resurrección";"Leon Tolstoy";"Ruso";348
+"Deudas y Dolores";"Philip Roth";"Norteamericano";349
+"After Dark";"Haruki Murakami";"Asiatico";350
+"Mauricio o las elecciones primarias";"Eduardo Mendoza";"Español";351
+"Conejo descansa";"John Updike";"Norteamericano";352
+"Las Brujas de Eastwick";"John Updike";"Norteamericano";353
+"Crónica delpajaro que da cuerda al mundo";"Haruki Murakami";"Asiatico";354
+"Hollywood Babilonia";"Kenneth Anger";"Norteamericano";355
+"El Cuchillo";"Patricia Highsmith";"Británico";356
+"El hombre que no era nadie";"Edgard Wallace";"Británico";357
+"Profundidades";"Henning Mankell";"resto Europa";358
+"El castillo de arena";"Iris Murdoch";"Británico";359
+"2999";"Roberto Bolaño";"Hispanoamericano";360
+"De cine (memorias de un principe de…)";"Budd Schulberg";"Norteamericano";361
+"Ampliación del campo de batalla";"Michel Houellebecq";"Francés";362
+"La hija del sepulturero";"Joyce Carol Oates";"Norteamericano";363
+"El hombre sonriente";"Henning Mankell";"resto Europa";364
+"Un jardin de placeres terrenales";"Joyce Carol Oates";"Norteamericano";365
+"El evangelio según el hijo";"Norman Mailer";"Norteamericano";366
+"Navegación a la vista";"Gore Vidal";"Norteamericano";367
+"Ahora sabreis lo que es correr";"Dave Eggers";"Norteamericano";368
+"Mama";"Joyce Carol Oates";"Norteamericano";369
+"Las nuevas confesiones";"William Boyd";"Británico";370
+"Siete llaves y el templo";"Jose Fdez. Vallado";"Español";371
+"Una novelita lumpen";"Roberto Bolaño";"Hispanoamericano";372
+"El poder del perro";"Don Winslow";"Norteamericano";373
+"El principe negro";"Iris Murdoch";"Británico";374
+"Ethan Frome";"Edith Warton";"Norteamericano";375
+"Train";"Pete Dexter";"Norteamericano";376
+"La vida facil";"Richard Price";"Norteamericano";377
+"Amor fraterno";"Pete Dexter";"Norteamericano";378
+"Los desnudos y los  muertos";"Norman Mailer";"Norteamericano";379
+"Jugadores";"Don DeLillo";"Norteamericano";380
+"Retorno a las estrellas";"Stanilaw Lem";"resto Europa";381
+"El maestro y Margarita";"Mijaíl Bulgákov";"Ruso";382
+"Lecturas de mi mismo";"Philip Roth";"Norteamericano";383
+"Cita en Samarra";"John O'hara";"Norteamericano";384
+"El más largo viaje";"E. M. Forster";"Británico";385
+"Trauma";"Patrick McGrath";"Norteamericano";386
+"El hombre mas buscado";"John Lecarre";"Británico";387
+"El chino";"Henning Mankell";"resto Europa";388
+"Tess la de los D'Urberville";"Thomas Hardy";"Británico";389
+"Mecanismos Internos";"J. M. Coetzee";"Africano";390
+"La marcha de Radetzky";"Joseph Roth";"Alemán";391
+"El abrecartas";"Vicente Molina Foix";"Español";392
+"El amor en los tiempos del cólera";"G. García Márquez";"Hispanoamericano";393
+"Estupor y temblores";"Amelie Nothomb";"resto Europa";394
+"El correr de los años";"Arthur Miller";"Norteamericano";395
+"Cualquier otro dia";"Dennis Lehane";"Norteamericano";396
+"Verano";"J. M. Coetzee";"Africano";397
+"Humillacion";"Philip Roth";"Norteamericano";398
+"Crónica de una muerte anunciada";"G. García Márquez";"Hispanoamericano";399
+"La leona blanca";"Henning Mankell";"resto Europa";400
+"El museo de la Inocencia";"Orhan Pamuk";"resto Europa";401
+"El asesino de la carretera";"James Ellroy";"Norteamericano";402
+"Todo lo que muere";"John Connolly";"resto Europa";403
+"Bullet Park";"John Cheever";"Norteamericano";404
+"El poder de las tinieblas";"John Connolly";"resto Europa";405
+"Falsa Identidad";"Sarah Waters";"Británico";406
+"Ruido de fondo";"Don DeLillo";"Norteamericano";407
+"Tierras de poniente";"J. M. Coetzee";"Africano";408
+"El arrancacorazones";"Boris Vian";"Francés";409
+"El cojo y el loco";"Jaime Bayly";"Hispanoamericano";410
+"Como nieve al sol";"William Boyd";"Británico";411
+"Solar";"Ian McEwan";"Británico";412
+"Muerte en la Fenice";"Donna Leon";"Norteamericano";413
