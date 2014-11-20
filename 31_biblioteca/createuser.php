@@ -1,4 +1,4 @@
-<?
+<?php
 require('conexionmysql.php');
 $login=$_POST['login'];
 $pas1=$_POST['pass1'];

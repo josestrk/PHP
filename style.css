@@ -2,6 +2,8 @@
 body {
     font-family: 'OpenSans-Regular.ttf';
     background: linear-gradient(45deg, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+    background-image:url('../31_biblioteca/backindex.jpg');
+    background-size: 100% 100%;
     color: #000;
     font-size: 11px;
     text-align: center;
@@ -119,7 +121,8 @@ h2,h4{color:orange;}
         border: 1px solid #54F;
         box-shadow: 3px 5px #666;
         padding: 15px;
-        margin: 10px;
+        margin: 10px auto;
+        text-align: center;
 }
 
 </style>
