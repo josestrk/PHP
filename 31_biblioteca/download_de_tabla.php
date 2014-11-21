@@ -5,15 +5,12 @@ if(isset($_GET['id']) )
 		require('conexionmysql.php');// se pierde la conexion al salir de la pagina de index asi que volvemos a conectar
     	$id      = $_GET['id']; 
     	$query   = "SELECT imagen FROM caratulas WHERE id = ' ".$id." '"; 
-    	$result  = mysql_query($query) or die('Error, query failed'); 
+    	$result  = $on -> query($query) or die('Error, query failed'); 
 		
-    	list($content) = mysql_fetch_array($result); 
+    	list($content) = $result->fetch_array(MYSQLI_NUM); 
 
     	//header("Content-Disposition: attachment; filename=$name"); 
     	//header("Content-length: $size");  
     	echo $content; 
-
-    	mysql_close();
-    	exit; 
 	} 
 ?>

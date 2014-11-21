@@ -18,7 +18,7 @@
 	}else $log="ERROR no existe usuario";
     if (isset($_GET['bloc']))$sell=$_GET['bloc'];
     else $sell="";
-	require('conexionmysql.php');
+	require_once('conexionmysql.php');
 	require('funcion.php');
     ?>
     <SCRIPT LANGUAGE="JavaScript">
@@ -56,8 +56,8 @@ if (!isset($_SESSION['log'])){
             <ul class="cabeza">
             <li>Buscar libros por titulo o autor ('*' para listado completo)</li>
             <form action="index.php" method="get">
-            <li><INPUT TYPE="text" SIZE="20" VALUE="<?php
- echo $sell; ?>" NAME="bloc"><input type="submit" value="Buscar" name=orden		 /> </li>
+            <li><INPUT TYPE="text" SIZE="20" VALUE=<?php
+ echo "$sell"; ?> NAME="bloc"><input type="submit" value="Buscar" name=orden		 /> </li>
             </form>
             <?php
  

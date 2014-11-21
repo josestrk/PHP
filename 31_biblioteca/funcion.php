@@ -20,85 +20,84 @@
 			 $sql= 'SELECT * FROM libex ORDER BY '.$ordenado.';';
 			}
 			  // ___________________________________________________________________________________________________ FIN select listar
-				if ($result = mysql_query($sql)) 
-				{	
+				$selection = $on->query($sql);
+					
 							
-						if(numeLibros($sell))
-						{
-						 echo "<table class='table' align='center' width='70%' >";
-						 echo "<tr >
-						 <td class='tit'><a href='index.php?bloc=".$sell."&orden=". 0 ."' class='";
-						 	 if ($ordenado=="TITULO"){
-							 echo 'tits';
-							 } 
-						 	 else {
-							 echo 'titp';
-							 }
-						 echo "'>T&Iacute;TULO</a></td>
-						 <td class='tit' ><a href='index.php?bloc=".$sell."&orden=". 1 ."' class='";
-						  if ($ordenado=="AUTOR"){
-							 echo 'tits';
-							 } 
-						 	 else {
-							 echo 'titp';
-							 }
-						 echo "'>AUTOR</a></td>
-						 <td class='tit'><a href='index.php?bloc=".$sell."&orden=". 2 ."' class='";
-						  if ($ordenado=="NACIONALIDAD"){
-							 echo 'tits';
-							 } 
-						 	 else {
-							 echo 'titp';
-							 }
-						 echo"'>NACIONALIDAD</a></td>";
-						 if($admin)echo "<td class='tit'><p class='titp'>OPCIONES</p></td>";// solo se muestra si eres administrador
-						 echo "<td class='tit'><p class='titp'>CARATULA</td>";
-						 echo "</tr>";
-							while ($row = mysql_fetch_assoc($result)) 
-							{							
-										$change=false;
-										if($id != 0)
-										{
-													$change=listar_editar($row,$row["ID"],$sell,$orden,$id);
-										}
-										if(!$change)
-										{
-										//antes de hacer el table genero un select para saber si el libro tiene foto o no
-													$sqlfe="select id FROM caratulas WHERE ID =".$row["ID"];
-													$resultmod = mysql_query($sqlfe);
-													$foto = mysql_fetch_array($resultmod);
-													if ($foto[0]!=0){$YES_FOTO=1;}else{$YES_FOTO=0;}
-										//foto exisiste fin
-													echo "<TR>";
-													echo "<td>".$row["TITULO"]."</td>";
-													echo "<td>".$row["AUTOR"]."</td>";
-													echo "<td>".$row["NACIONALIDAD"]."</td>";
-													if($admin)
-													{
-													echo '
-														<td width="150px">
-														<a href="index.php?&idEdit='.$row["ID"].'&bloc='.$sell.'&orden='.$orden.'" class="botont2" NAME="editar" onfocus="class="cursor""> Editar </a>&nbsp;&nbsp;
-														<a href="index.php?&idDel='.$row["ID"].'&bloc='.$sell.'&orden='.$orden.'"  class="botont2" NAME="borrar" onfocus="class="cursor""> Borrar</a>
-														<br>';
-														echo'<a href="index.php?&modF='.$row["ID"].'&bloc='.$sell.'&orden='.$orden.'"  class="botont2" style="padding:0px 10px 0px 10px;" NAME="modfoto" onfocus="class="cursor"">'; if($YES_FOTO) echo 'Modificar foto'; else echo 'Introducir foto';
-														echo '</a></td>';
-													}
-// (+) boton VER
-													if ($YES_FOTO == 1) 
-													{
-														echo "
-															<td width='150px'>
-															<a href = 'javascript:popUp(\"verfoto.php?watch=".$row['ID']."\")'  class='botont2' NAME='ver' onfocus='class='cursor''>Ver</a>
-														  	</td>";// OJO con las comillas dentro del javascript
-													}
-													echo "</TR>";
-										}
-							}
-						 echo "</table>";
-						}
+if(numeLibros($sell))
+{
+ echo "<table class='table' align='center' width='70%' >";
+ echo "<tr >
+ <td class='tit'><a href='index.php?bloc=".$sell."&orden=". 0 ."' class='";
+ 	 if ($ordenado=="TITULO"){
+	 echo 'tits';
+	 } 
+ 	 else {
+	 echo 'titp';
+	 }
+ echo "'>T&Iacute;TULO</a></td>
+ <td class='tit' ><a href='index.php?bloc=".$sell."&orden=". 1 ."' class='";
+  if ($ordenado=="AUTOR"){
+	 echo 'tits';
+	 } 
+ 	 else {
+	 echo 'titp';
+	 }
+ echo "'>AUTOR</a></td>
+ <td class='tit'><a href='index.php?bloc=".$sell."&orden=". 2 ."' class='";
+  if ($ordenado=="NACIONALIDAD"){
+	 echo 'tits';
+	 } 
+ 	 else {
+	 echo 'titp';
+	 }
+ echo"'>NACIONALIDAD</a></td>";
+ if($admin)echo "<td class='tit'><p class='titp'>OPCIONES</p></td>";// solo se muestra si eres administrador
+ echo "<td class='tit'><p class='titp'>CARATULA</td>";
+ echo "</tr>";
+	while ($row = mysql_fetch_assoc($result)) 
+	{							
+				$change=false;
+				if($id != 0)
+				{
+							$change=listar_editar($row,$row["ID"],$sell,$orden,$id);
 				}
-				
-		mysql_close();
+				if(!$change)
+				{
+				//antes de hacer el table genero un select para saber si el libro tiene foto o no
+							$sqlfe="select id FROM caratulas WHERE ID =".$row["ID"];
+							$resultmod = mysql_query($sqlfe);
+							$foto = mysql_fetch_array($resultmod);
+							if ($foto[0]!=0){$YES_FOTO=1;}else{$YES_FOTO=0;}
+				//foto exisiste fin
+							echo "<TR>";
+							echo "<td>".$row["TITULO"]."</td>";
+							echo "<td>".$row["AUTOR"]."</td>";
+							echo "<td>".$row["NACIONALIDAD"]."</td>";
+							if($admin)
+							{
+							echo '
+								<td width="150px">
+								<a href="index.php?&idEdit='.$row["ID"].'&bloc='.$sell.'&orden='.$orden.'" class="botont2" NAME="editar" onfocus="class="cursor""> Editar </a>&nbsp;&nbsp;
+								<a href="index.php?&idDel='.$row["ID"].'&bloc='.$sell.'&orden='.$orden.'"  class="botont2" NAME="borrar" onfocus="class="cursor""> Borrar</a>
+								<br>';
+								echo'<a href="index.php?&modF='.$row["ID"].'&bloc='.$sell.'&orden='.$orden.'"  class="botont2" style="padding:0px 10px 0px 10px;" NAME="modfoto" onfocus="class="cursor"">'; if($YES_FOTO) echo 'Modificar foto'; else echo 'Introducir foto';
+								echo '</a></td>';
+							}
+// (+) boton VER
+							if ($YES_FOTO == 1) 
+							{
+								echo "
+									<td width='150px'>
+									<a href = 'javascript:popUp(\"verfoto.php?watch=".$row['ID']."\")'  class='botont2' NAME='ver' onfocus='class='cursor''>Ver</a>
+								  	</td>";// OJO con las comillas dentro del javascript
+							}
+							echo "</TR>";
+				}
+	}
+ echo "</table>";
+}		
+		$selection->free();
+		$on->close();
  }
  function numeLibros($sell){
 	// _________________________________________________________________________________________ select contador de libros
@@ -112,22 +111,19 @@
 			}
 			
 	// _________________________________________________________________________________________ FIN select contador de libros
-			if ($num_res = mysql_query($sql_num)) 
-			{
-					while ($row = mysql_fetch_array($num_res)) 
-					{
-						if($row[0]==0)
-						{	
-							echo 'No existe ningun libro con ["'.$sell.'"] como TITULO ni como AUTOR <br>';	
-							return false;									
-						}
-						else
-						{
-							echo "<br> EL N&Uacute;MERO TOTAL DE LIBROS ENCONTRADOS ES : <strong>".$row[0]."</strong>";
-							return true;
-						}	
-					}
+			
+			$result = $on->query($sql_num);
+			$num_res = $on->affected_rows;
+			if($num_res==0)
+			{	
+				echo 'No existe ningun libro con ["'.$sell.'"] como TITULO ni como AUTOR <br>';	
+				return false;									
 			}
+			else
+			{
+				echo "<br> EL N&Uacute;MERO TOTAL DE LIBROS ENCONTRADOS ES : <strong>".$num_res."</strong>";
+				return true;
+			}	
  }
  function listar_editar($row,$idMod,$sell,$orden,$id){
 	if($idMod==$id){//Esta comparacion se realiza para saber si id del array row es = al id de idEdit	
@@ -149,25 +145,23 @@
 			<td>';
 			 $sqln= 'SELECT distinct(NACIONALIDAD) FROM libex;';
 			 echo '<select name="n">';
-			 if ($resultn = mysql_query($sqln)) 
+			 $resultn = $on->query($sqln);
+			 while ($nat = $resultn->fetch_assoc()) 
+			 {
+				//__ row es la nacionalidad del autor id seleccionado nat el array de nacionalidades
+				if ($nat["NACIONALIDAD"]==$row["NACIONALIDAD"])
 				{
-					while ($nat = mysql_fetch_assoc($resultn)) 
-					{
-						//__ row es la nacionalidad del autor id seleccionado nat el array de nacionalidades
-						if ($nat["NACIONALIDAD"]==$row["NACIONALIDAD"])
-						{
-						 echo '<option value="'.$nat["NACIONALIDAD"].'" selected='.$nat["NACIONALIDAD"].'>';
-						 echo $row["NACIONALIDAD"];
-						 echo '</option>' ;
-						}
-						else
-						{
-						 echo '<option value="'.$nat["NACIONALIDAD"].'">';
-						 echo $nat["NACIONALIDAD"];
-						 echo '</option>' ;
-						}
-					}
-				}		 			 
+				 echo '<option value="'.$nat["NACIONALIDAD"].'" selected='.$nat["NACIONALIDAD"].'>';
+				 echo $row["NACIONALIDAD"];
+				 echo '</option>' ;
+				}
+				else
+				{
+				 echo '<option value="'.$nat["NACIONALIDAD"].'">';
+				 echo $nat["NACIONALIDAD"];
+				 echo '</option>' ;
+				}
+			 }	 			 
 			echo '</select></td>';
 			echo '
 			<td width="180px">
@@ -228,6 +222,7 @@
 			return true;// para que no vuelva a escribir la linea
 		}
 	}
+	$resultn>free();
  }
  // FUNCION PARA MODIFICACION------------------------------------------------------
   function modifiLibro($idmod, $titulo, $autor, $nacionalidad){
@@ -235,11 +230,12 @@
 			AUTOR = '".$autor."',
 			NACIONALIDAD = '".$nacionalidad."'
 			 WHERE ID =".$idmod;
-	if ($resultmod = mysql_query($sqlmod)) 
+	if ($resultmod = $on->query($sqlmod)) 
 	{
 		echo "SE HA MODIFICADO LA TABLA <br>";
 		listar($_GET['bloc'],$_GET['orden'],0);
 	}
+	$resultmod->free();
  }
  // FUNCIONES PARA ALTAS------------------------------------------------------
  function altaLibro(){
@@ -256,9 +252,9 @@
 			echo '<td>';
 			 $sqln= 'SELECT distinct(NACIONALIDAD) FROM libex;';
 			 echo '<select name="n">';
-			 if ($result = mysql_query($sqln)) 
+			 if ($result = $on->query($sqln)) 
 				{
-					while ($nat = mysql_fetch_assoc($result)) 
+					while ($nat = $result->fetch_assoc()) 
 					{
 					 echo '<option value="'.$nat["NACIONALIDAD"].'">';
 					 echo $nat["NACIONALIDAD"];
@@ -279,13 +275,14 @@
 			</td>
 			</tr></form>';
 			echo "</table>";
+			$result->free();
  }
  //hacer alta en tabla
  function listadoAltas($up,$titulo,$autor,$nacionalidad){
 		$idnew=0;
 		$sql= 'SELECT MAX(ID) FROM libex';
-		$result = mysql_query($sql);
-		$row = mysql_fetch_row($result);
+		$result = $on->query($sql);
+		$row = $result->fetch_array(MYSQLI_NUM);
 		$idnew=$row[0]+1;
 		//idnueva generada para nuevo libro
 		$sqlalta="INSERT INTO libex (
@@ -297,7 +294,7 @@
 				VALUES (
 				'".$titulo."', '".$autor."', '".$nacionalidad."', '".$idnew."'
 				);";
-		if ($resultmod = mysql_query($sqlalta)) 
+		if ($resultmod =$on->query($sqlalta)) 
 		{
 				echo "SE HA A&Ntilde;ADIDO [".$titulo."] A LA TABLA con id: ".$idnew."<br>";
 				
@@ -311,20 +308,22 @@
 			upphoto($idnew,$titulo);
 		}
 		else listar($titulo,0,$idnew);
+		$result->free();
+		$resultmod->free();
  }
  
  // (+) FUNCION PARA BORRAR ------------------------------------------------------
  function delLibro($idel){
 	$sqlmod="DELETE FROM libex WHERE ID =".$idel;
-	if ($resultmod = mysql_query($sqlmod)) 
+	if ($resultmod = $on->query($sqlmod)) 
 	{
 		echo "SE HA BORRADO DE LA TABLA <br>";
 		$sqlfe="select id FROM caratulas WHERE ID =".$idel;
-		$resultmod = mysql_query($sqlfe);
-		$foto = mysql_fetch_array($resultmod);
+		$resultmod = $on->query($sqlfe);
+		$foto = $resultmod->fetch_array(MYSQLI_NUM);
 		if ($foto[0]!=0){
 				$sqldelfoto="DELETE FROM caratulas WHERE ID =".$idel;
-				if ($resultdelfoto = mysql_query($sqldelfoto)){echo "SE HA BORRADO LA FOTO DE LA TABLA <br>";}
+				if ($resultdelfoto = $on->query($sqlmod)){echo "SE HA BORRADO LA FOTO DE LA TABLA <br>";}
 		}
 		else{
 			echo "NO TIENE FOTO <br>";	
@@ -335,6 +334,7 @@
 	{
 		echo "NO SE PUDO BORRAR \n";
 	}
+
  }
  // (+) FUNCION PARA SUBIR FOTO ----------------------------------------------------
  function upphoto($id,$tit){
@@ -351,12 +351,12 @@
 				$content=addslashes($content);
 				fclose($fp);  
 				$query = "INSERT INTO caratulas(id,imagen) VALUES ('$id','$content')";
-				if (mysql_query($query))
+				if ( $on->query($query))
 					echo "la imagen ha sido guardada correctamente";
 				else
 				{
 				 	$mquery = "UPDATE caratulas SET imagen='$content' WHERE id='$id'";
-					mysql_query($mquery) or die("No se modifico la imagen");
+					$on->query($mquery) or die("No se modifico la imagen");
 					echo "la imagen ha sido modificada correctamente";
 				 }
 				 listar($tit,0,0);

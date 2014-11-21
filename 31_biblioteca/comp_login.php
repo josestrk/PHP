@@ -16,9 +16,9 @@ else
 	require('conexionmysql.php');
 	//Sentencia para obtener usuario
 	$query   = "SELECT login,tipo from USUARIOS WHERE  login = '$nombre' and passwd = password('$pass')"; 
-	$result  = mysql_query($query) or die('Error, fallo de la consulta'.$query); 
+	$result  = $on -> query($query) or die('Error, fallo de la consulta'.$query); 
 	
-	if(($num_total_registros = mysql_num_rows($result))!=1)// si hay mas de uno o 0 dara error en el sistema y pedira volver a logearse
+	if(($num_total_registros = $result->num_rows)!=1)// si hay mas de uno o 0 dara error en el sistema y pedira volver a logearse
 	{
 		$_SESSION['intenconex']=1;
 		echo '<html> 
@@ -30,7 +30,7 @@ else
 		</body></html>';
 	}
 	// NO DA ERROR 
-	$registro=mysql_fetch_row($result);
+	$registro=$result->fetch_row(MYSQLI_NUM);
 	
 	$_SESSION['intenconex']=0;// para que el usuario al salir no le de el aviso de error
 	$_SESSION['db_is_logged_in'] = true;// activa la sesion

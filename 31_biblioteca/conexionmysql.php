@@ -1,10 +1,7 @@
 <?php
- $on =  mysql_connect('localhost', 'root', '123456');
-	 if (!$on) {
-			die('No se conecto a MYSQL : ' . mysql_error());
-	 }
- $db_selected = mysql_select_db('libreria', $on);
-	if (!$db_selected) {
-		die ('No se puede utilizar libreria: ' . mysql_error());
-	}
+$on = new mysqli('localhost', 'root', '123456', 'libreria');
+if ( $on->connect_errno ) {
+    printf("Falló la conexión: %s\n", $enlace->connect_error);
+    exit();
+}
 ?>
