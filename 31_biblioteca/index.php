@@ -62,7 +62,7 @@ if (!isset($_SESSION['log'])){
             <?php
  
 			if($admin){
-            echo '<form action="index.php" method="get">
+            echo '<form action="'.$_SERVER['PHP_SELF'].'" method="get">
             <li><input type="submit" src="" value="Alta de ejemplar" name=altej /></li>
             </form>';
 			}

@@ -9,7 +9,7 @@
 		<?php
 	
 		header("Content-type: image/jpg");
-		require('conexionbd.php');
+		require('conexionmysql.php');
     	$id      = $_GET['watch']; 
     	$query   = "SELECT imagen FROM libros WHERE id = ' ".$id." '"; 
     	$result  = mysql_query($query) or die('Error, query failed'); 

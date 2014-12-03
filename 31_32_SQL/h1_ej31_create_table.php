@@ -18,7 +18,6 @@ if(isset($_POST['bd_name'])){
 	$sqlbd= "CREATE DATABASE IF NOT EXISTS ".$_POST["bd_name"]." DEFAULT CHARACTER SET latin1 DEFAULT COLLATE latin1_spanish_ci;";
 	if(!$connect = $enlace->query( $sqlbd)){
 		$mensaje='fallo creacion Base de datos';
-		$alert = "alert";
 	}else{
 		//nos conectamos a la bbdd 
 		$enlace->select_db($_POST['bd_name']);

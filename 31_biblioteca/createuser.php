@@ -33,12 +33,12 @@ $pas2=$_POST['pass2'];
 			{
 				//Sentencia para saber si existe usuario
 				$query   = "SELECT * from USUARIOS WHERE  login = '".$login."'";
-				$result  = mysql_query($query) or die('Error, fallo de la consulta'.$query); 
-					if(($num_total_registros = mysql_num_rows($result))!=0)// si hay alguno fallara
+				$result  = $on->query($query) or die('Error, fallo de la consulta'.$query); 
+					if(($num_total_registros = $result -> num_rows )!=0)// si hay alguno fallara
 					{
 						echo '<html>
 						<SCRIPT LANGUAGE="JavaScript">
-						alert("Usuario ya existe");
+						alert("Usuario ya existe -'.$num_total_registros.'");
 						</script>  
 						<body>
 						<meta http-equiv="refresh" content="0;URL=login.php">
@@ -48,7 +48,7 @@ $pas2=$_POST['pass2'];
 					{
 						// NO DA ERROR Crear usuario
 						$query   = 'insert into USUARIOS values("","'.$login.'",password("'.$pas1.'"),"usuario")';
-						$result  = mysql_query($query) or die('Error, fallo en la creacion'.$query); 
+						$result  = $on -> query($query) or die('Error, fallo en la creacion'.$query); 
 						echo '<html>
 						<SCRIPT LANGUAGE="JavaScript">
 						alert("Usuario creado con exito");
