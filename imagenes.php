@@ -1,6 +1,5 @@
 <?php
 echo "
-
 <form ACTION=$_SERVER[PHP_SELF] METHOD=POST ENCTYPE=multipart/form-data>
 	<input type=file name=imagen>
 	<input type=submit>
