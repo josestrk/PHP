@@ -6,6 +6,7 @@ body {
     background-size: 100% 100%;
     color: #000;
     font-size: 11px;
+    text-align: center;
 }
 h1{
     font-size: 36px;
@@ -61,12 +62,17 @@ table, th, tr, td {
 
 /*--- Alerts ---*/
 .alert{
-    border: 2px solid red;
-    color: red;
-    font-weight: 700;
-    text-align: center;
-    padding: 10px;
-    background-color: ghostwhite;
+    -webkit-border-radius: 11;
+    -moz-border-radius: 11;
+    border-radius: 11px;
+    font-family: Arial;
+    color: #F00;
+    font-size: 15px;
+    padding: 10px 30px;
+    margin: 3px;
+    border: solid #F00 2px;
+    text-decoration: none;
+    display: inline-block;
 }
 .alertNULL{
     display: none;
@@ -145,9 +151,12 @@ table, th, tr, td {
     background-size: 100% 100%;
 }
 .cartel > h1 {
-    margin-top: 90%;
+    margin-top: 245px;
+    margin-left: inherit;
+    border-radius-right: none; 
 }
 .cartel > *{
+    border-radius: 5px;
     color: grey;
     padding: 7px;
     background-color: rgba(255,255,255,0.8);
