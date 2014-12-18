@@ -34,15 +34,28 @@ Cualquier tipo de error que se produjese en la base de datos, tanto de conexión
 					</form>
 			   </div>';
 	}elseif (isset($_POST['titulo']) && isset($_POST['actor']) && isset($_POST['director']) && isset($_POST['tipo']) && isset($_POST['año'])){	
-		echo '<div style="display:block;"><span class="notifi">';
-		createfilm($mysqli, $_POST['titulo'], $_POST['tipo'], UpPhoto('../cartelera/'), $_POST['actor'], $_POST['director'], $_POST['año']);
-		echo '</span><a href="index.php?edit=true" class=\'btn\'>Editar Peliculas</a>';
-		echo '<a href="crear.php" class=\'btn\' >Crear bbdd</a></div>';
-		mostrar($mysqli);
+		echo '<div style="display:block;text-align: end;">';
+			try{
+				createfilm($mysqli, $_POST['titulo'], $_POST['tipo'], UpPhoto('../cartelera/'), $_POST['actor'], $_POST['director'], $_POST['año']);
+			}catch(Exception $e){
+				echo'<div class="alert">'.$e->getMessage().'</div>';
+			}
+			echo '<a href="index.php?edit=true" class=\'btn\'>Editar Peliculas</a>'.
+			'<a href="crear.php" class=\'btn\' >Crear bbdd</a>'
+		.'</div>';
+		try{
+			mostrar($mysqli);
+		}catch(Exception $e){
+			echo'<div class="alert">'.$e->getMessage().'</div>';
+		}
 	}else{
-		echo '<div style="display:block;"><a href="index.php?edit=true" class=\'btn\'>Editar Peliculas</a>
+		echo '<div style="display:block;text-align: end;"><a href="index.php?edit=true" class=\'btn\'>Editar Peliculas</a>
 		<a href="crear.php" class=\'btn\' >Crear bbdd</a></div>';
-		mostrar($mysqli);
+		try{
+			mostrar($mysqli);
+		}catch(Exception $e){
+			echo'<div class="alert">'.$e->getMessage().'</div>';
+		}
 	}
 ?>
 </body>
