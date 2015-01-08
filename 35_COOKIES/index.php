@@ -10,7 +10,7 @@ A continuación cuando nos pida los datos de las películas, lo hará en ese idi
 Este fichero será 
 */
 //bool setcookie ( string $nombre [, string $valor [, int $expira = 0 [, string $ruta [, string $dominio [, bool $segura = false [, bool $httponly = false ]]]]]] );
-include('../style/style.css');
+include('url/style.css');
 if (isset($_POST['color']) && isset($_POST['box-color']) && isset($_POST['background'])){
 	setcookie('Fecha',date('Y-m-d H:i:s'), time()+60*60,'/');
 	setcookie('idioma','ESP',time()+60*60,'/');
@@ -21,42 +21,52 @@ if (isset($_POST['color']) && isset($_POST['box-color']) && isset($_POST['backgr
 ?>
 </head>
 <body>
-	<div class="formLS">
+<?php
+if (isset($_POST['color']) && isset($_POST['box-color']) && isset($_POST['background'])){
+	echo '<div class="formLS">
 		<h2>Configuración de cartelera</h2>
-		<form action=<?php echo $_SERVER['PHP_SELF']; ?> method='POST' enctype='multipart/form-data'>
+		<form>
 		    <h3>Color de texto: 
-		    <select type="text" name="color" style="margin:auto;">';
+		    <select type="text" name="color" style="margin:auto;">
+			    <option value="'.$_POST['color'].'">'.$_POST['color'].'</option>
+		    </select></h3>
+		    <br>
+		    <h3>Color de carteles: <select type="text" name="box-color" style="margin:auto;">
+			    <option value="'.$_POST['box-color'].'">'.$_POST['box-color'].'</option>
+		    </select></h3>
+		    <h3>Fondo: <select type="text" name="background" style="margin:auto;">
+			    <option value="'.$_POST['background'].'">'.$_POST['background'].'</option>
+		    </select></h3>
+		    <input type="submit" value="Enviar" class="sb" style="width:300px"/>
+		</form>
+	</div>';
+	echo '<div class="notifi">Gracias por activar las cookies</div>';
+	echo '<META http-equiv="refresh" content="0.8;URL=url/index35.php">';
+}
+if(!isset($_POST['color']) ){
+	echo'<div class="formLS">
+		<h2>Configuración de cartelera</h2>
+		<form action='.$_SERVER['PHP_SELF'].' method="POST" enctype="multipart/form-data">
+		    <h3>Color de texto: 
+		    <select type="text" name="color" style="margin:auto;">
 			    <option value="orange">naranja</option>
 			    <option value="green">verde</option>
 			    <option value="grey">gris</option>
 		    </select></h3>
 		    <br>
-		    <h3>Color de carteles: <select type="text" name="box-color" style="margin:auto;">';
+		    <h3>Color de carteles: <select type="text" name="box-color" style="margin:auto;">
 			    <option value="orange">naranja</option>
 			    <option value="green">verde</option>
 			    <option value="grey">gris</option>
 		    </select></h3>
-		    <h3>Fondo: <select type="text" name="background" style="margin:auto;">';
+		    <h3>Fondo: <select type="text" name="background" style="margin:auto;">
 			    <option value="../img/backindex.jpg">fondo 1</option>
 			    <option value="../img/backindex2.jpg">fondo 2</option>
 			    <option value="../img/backindex3.jpg">fondo 3</option>
 		    </select></h3>
-		    <!-- <h3>Estilo: <select type="text" name="style" style="margin:auto;">';
-			    <option value="1">estilo 1</option>
-			    <option value="2">estilo 2</option>
-			    <option value="3">estilo 3</option>
-		    </select></h3> -->
 		    <input type="submit" value="Enviar" class="sb" style="width:300px"/>
 		</form>
-	</div>
-<?php
-if (isset($_POST['color']) && isset($_POST['box-color']) && isset($_POST['background'])){
-	echo '<META http-equiv="refresh" content="0.8;URL=../33-34_SQLRELACIONAL/index35.php">';
-}
-if(!isset($_COOKIE['Fecha']) && !isset($_POST['color']) ){
-	echo '<div class="alert">No se han activado cookies</div>';
-}else{
-	echo '<div class="notifi">Gracias por activar las cookies</div>';
+	</div>';
 }
 ?>
 	</div>
