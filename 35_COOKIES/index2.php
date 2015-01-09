@@ -24,7 +24,7 @@ if(!isset($_COOKIE['Fecha'])){
 }else{
 	echo 'Gracias por activar las cookies';
 }
-echo "<br><a class='btn' href=$_SERVER[PHP_SELF]>Refresh</a>"
+echo "<br><a class='btn' href=$_SERVER[PHP_SELF]>Refresh</a>";
 ?>
 	</div>
 </body>

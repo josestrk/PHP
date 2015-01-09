@@ -5,7 +5,7 @@ body {
     background-image:url('../31_biblioteca/backindex.jpg');
     background-size: 100% 100%;
     color: #000;
-    font-size: 11px;
+    font-size: 14px;
     text-align: center;
 }
 h1{
@@ -21,6 +21,18 @@ h3{
     font-size: 20px;
     color: #16a8a2;
     padding: 2px;
+}
+p{
+    font-family: "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif;
+    color: #696969;
+    font-size: 16;
+    padding: 8;
+}
+li{
+    text-align: left;
+    margin: auto;
+    padding: 0px 40%;
+    font-size: 18px;
 }
 section {
     width: 500px;
