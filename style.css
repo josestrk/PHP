@@ -1,4 +1,7 @@
 <style>
+html{
+    height: 100%;
+}
 body {
     font-family: 'OpenSans-Regular.ttf';
     background: linear-gradient(45deg, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
@@ -27,12 +30,6 @@ p{
     color: #696969;
     font-size: 16;
     padding: 8;
-}
-li{
-    text-align: left;
-    margin: auto;
-    padding: 0px 40%;
-    font-size: 18px;
 }
 section {
     width: 500px;
