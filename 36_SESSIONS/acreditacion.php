@@ -5,7 +5,6 @@
 Cree un script llamado acreditacion.php con el siguiente contenido.
 En este script empezamos la sesión
 */
-include('../style/style.css');
 if(isset($_GET['delete'])){
 	session_start();
 	$_SESSION=array();
@@ -23,7 +22,7 @@ if(isset($_GET['delete'])){
 		}
 	}
 }
-
+include('../style/style.css');
 ?>
 </head>
 <body>

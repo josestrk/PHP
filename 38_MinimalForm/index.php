@@ -6,8 +6,8 @@
 
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<script src="js/modernizr.custom.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/st.css" />
+
 
 		<?php
 			class Quest{
@@ -43,19 +43,31 @@
 	<body>
 		<div class="container">
 			<!-- Top Navigation -->
+			<?php
+				echo '<div style="display:block;text-align: end;">';
+				if(isset($_SESSION)){
+					echo '<span class="notifi">ON';
+				}else{
+					echo '<span class="alert">OFF';
+				}
+				echo '</span>'
+				.'<a href="'.$_SERVER['PHP_SELF'].'?delete" class=\'btn\' >Borrar cookies</a>';
+			?>
 			<header class="codrops-header">
 				<h1>Form to exercise 38 <span>Guided input's</span></h1>	
 			</header>
 			<section>
-				<form acttion=<?php echo "$_SERVER[PHP_SELF]"; ?> method="post" id="theForm" class="simform" autocomplete="off">
+				
+				<form action=<?php echo "$_SERVER[PHP_SELF]"; ?> method="post" id="theForm" class="simform" autocomplete="off">
 					<div class="simform-inner">
-						<ol class="questions">
+						
 							<?php
 								if($i<$max){
 									echo '
-									<li>
 									<span><label for="q'.$q[$i]->id.'"></label>'.$q[$i]->name.'</span>
-									<input  id="q'.$q[$i]->id.'" name="'.$q[$i]->name.'" type="text" autofocus />
+									<ol class="questions">
+									<li><input class="quest"  id="q'.$q[$i]->id.'" name="'.$q[$i]->name.'" type="text" autofocus />
+									<button class="next">&#10004;</button>
 									</li>';
 									$_SESSION['i'] = $i+1;
 								}else{
@@ -66,15 +78,15 @@
 						</ol>
 						<button class="submit" type="submit">Enviar resultados</button>
 						<div class="controls">
-							<button class="next"></button>
-							<div class="progress"></div>
-							<span class="number">
+							<div class="progress" id="barra"></div>
+							<span class="number" id="number">
 								<?php
 									echo ($i+1)."/$max";
 								?>
 							</span>
 							<span class="error-message"></span>
 						</div>
+
 						<!-- / controls -->
 					</div><!-- /simform-inner -->
 					<span class="final-message"></span>
@@ -82,5 +94,11 @@
 			</section>
 			
 		</div><!-- /container -->
+		<script type="text/javascript">
+		var a =<?php echo (($i+1)/$max*100);?>;
+		onload = function() {
+			document.getElementById('barra').style.width=a+"%" 
+		};
+		</script>
 	</body>
 </html>
