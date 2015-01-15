@@ -40,11 +40,16 @@
 
 /*Button next*/
 .next{
-	padding: 0px;
-	border: 0px;
-	color: rgba(0,0,0,0.3);
-	background: none;
-	cursor: pointer;
+    padding: 0px;
+    height: inherit;
+    border: 0px;
+    color: rgba(0,0,0,0.3);
+    background: none;
+    cursor: pointer;
+    width: 52px;
+    visibility: hidden;
+	-webkit-transition: opacity 0s 2s, visibility 0s 1s;
+	transition: opacity 0s  2s, visibility 0s 1s;
 }
 
 .next:hover {
