@@ -1,16 +1,17 @@
+<meta charset="UTF-8" />
 <?php
+require('../config.php');
 require('connection.php');
-
 $q= array(
     'Tipo' => array('Piso','Adosado','Chale','Mansion'),
     'Zona' => array('Residencial','Rural','Urbana','Exteriores'),
     'Dormitorios'=>  array('1','2','3','4'),
     'Precio'=> array('100.000','200.000','300.000','400.000'),
-    'Extras'=> array('Jardín','Piscina','Garage')
+    'Extras'=> array('Jardin','Piscina','Garage')
 );
 
 //Crear base de datos
-$sqlbd= "CREATE DATABASE IF NOT EXISTS ".BBDD." DEFAULT CHARACTER SET latin1 DEFAULT COLLATE latin1_spanish_ci;";
+$sqlbd= "CREATE DATABASE IF NOT EXISTS ".BBDD." DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;";
 
 if(!$connect = $mysqli->query( $sqlbd)){
     printf("Falló la creación de la bade de datos: %s\n", $mysqli->connect_error);
@@ -42,6 +43,6 @@ if(!$connect = $mysqli->query( $sqlbd)){
         
     }
     $mysqli->close();
-//    echo '<META http-equiv="refresh" content="2;URL=../index.php">';
+ echo '<META http-equiv="refresh" content="2;URL=../index.php">';
 }
 ?>

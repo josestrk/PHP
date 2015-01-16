@@ -16,11 +16,18 @@ function delete(){
     session_destroy();
 }
 session_start();
-
-require('sql/connection.php');
-require('sql/sql.php');
+require_once('config.php');
+require_once('sql/connection.php');
+require_once('sql/sql.php');
 $max=5;
 $i = isset($_SESSION['i']) ? $_SESSION['i'] : 0 ;
+$array= array(
+    array('Tipo' => 'select'),
+    array('Zona' => 'radio'),
+    array('Dormitorios'=>  'radio'),
+    array('Precio'=> 'radio'),
+    array('Extras'=> 'checkbox'));
+
 if(isset($_POST) && $i!=0) $_SESSION['result'.$i]=$_POST;
 ?>
 </head>
@@ -47,12 +54,21 @@ if(isset($_POST) && $i!=0) $_SESSION['result'.$i]=$_POST;
 
                     <?php
                         if($i<$max){
+                            foreach($array[$i] as $key => $value) {
                             echo '
-                            <span><label for="q'.$q[$i]->id.'"></label>'.$q[$i]->name.'</span>
+                            <span><label for="'.($i+1).'"></label>'.$key.'</span>
                             <ol class="questions">
-                            <li><input class="quest"  id="q'.$q[$i]->id.'" name="'.$q[$i]->name.'" type="text" autofocus />
-                            <button class="next" id="next">&#10004;</button>
-                            </li>';
+                            <li id="'.($i+1).'" class="questinfo"><ul>';
+                                if($value=='select')
+                                {
+                                    echo '<li><select onchange="this.form.submit()" class="quest" name='.($i+1).'>';
+                                    select($mysqli, $key,$value,$i+1);
+                                    echo '</select></li>';
+                                }else{
+                                    select($mysqli, $key,$value,$i+1);
+                                }
+                            echo '</ul></li><li><button class="next" id="next">&#10004;</button></li>';
+                            }
                             $_SESSION['i'] = $i+1;
                         }else{
                             var_dump($_SESSION);
@@ -82,10 +98,7 @@ if(isset($_POST) && $i!=0) $_SESSION['result'.$i]=$_POST;
     var a =<?php echo (($i+1)/$max*100);?>;
     onload = function() {
         document.getElementById('barra').style.width=a+"%"; 
-    };
-
-    document.getElementById('q<?php echo $i+1;?>').onfocus = function(){
-            document.getElementById('next').style.visibility='visible';
+        document.getElementById('next').style.visibility='visible';
         };
     </script>
 </body>
