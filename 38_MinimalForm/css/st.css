@@ -111,3 +111,44 @@ ul{
     width:20px;
     height: 20px;
 }
+
+/*--- Alerts ---*/
+.alert{
+    -webkit-border-radius: 11;
+    -moz-border-radius: 11;
+    border-radius: 11px;
+    font-family: Arial;
+    color: #F00;
+    font-size: 15px;
+    padding: 10px 30px;
+    margin: 3px;
+    border: solid #F00 2px;
+    text-decoration: none;
+    display: inline-block;
+}
+.alertNULL{
+    display: none;
+}
+.alertOK{
+    background-color: ghostwhite;
+    border: 2px solid lightblue;
+    color: lightblue;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
+}
+.notifi{
+    -webkit-border-radius: 11;
+    -moz-border-radius: 11;
+    border-radius: 11px;
+    font-family: Arial;
+    color: lightblue;
+    font-size: 15px;
+    padding: 10px 30px;
+    margin: 3px;
+    border: solid lightblue 2px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/*--- --- ---*/

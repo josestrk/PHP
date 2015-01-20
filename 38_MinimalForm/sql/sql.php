@@ -24,7 +24,7 @@ function viewSelect($info, $name){
 
 function viewradio($info, $name){
 	while($row=$info->fetch_assoc()){
-		echo "<li><input class='rad'  name='$name' type='radio' value=".$row['ID'].">".$row['NAME']."</li>";
+		echo "<li><input class='rad'  name='$name' type='radio' value=".$row['ID']." onclick='this.form.submit()'>".$row['NAME']."</li>";
     }
 }
 
@@ -36,11 +36,24 @@ function viewCheckbox($info, $name){
 
 function viewInput($info, $name){
 	while($row=$info->fetch_assoc()){
-		echo "<li><input class='quest' name='$name' id='".$row['ID']."' value='".$row['NAME']."' autofocus><button class='next' id='next'>&#10004;</button></li>";
+		echo "<li><input class='quest' name='$name' id='".$row['ID']."' autofocus></li>";
     }
 }
-// function saveValues(&$mysqli,){
 
-// }
+function saveValues(&$mysqli,$name,$id_tipo,$id_zona,$id_dorm,$id_precio,$id_extra){
+    $sql="INSERT INTO casa
+    (NAME,id_tipo,id_zona,id_dorm,id_precio,id_extra) 
+    VALUES ('".$name."',".$id_tipo.",".$id_zona.",".$id_dorm.",".$id_precio.",'".$id_extra."');"; 
+    $mysqli->query("SET NAMES 'utf8'");
+    if (!$resultado = $mysqli->query($sql))
+        echo'<div class="alertFAIL">Error al Insertar datos</div>';
+    else
+        echo "Añadida exitosamente";
+    mostrarBusqueda($mysqli,$id);
+}
 
+function mostrarBusqueda(&$msqli,$filter1){
+    //hacer búsqueda parametrizada al sql
+    
+}
 ?>
