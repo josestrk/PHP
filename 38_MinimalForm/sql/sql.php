@@ -16,8 +16,9 @@ function select(&$mysqli, $table, $tp, $name){
 }
 
 function viewSelect($info, $name){
+	echo "<option style='background-color: rgb(40, 182, 123); color: whitesmoke;' class='quest'  name='0'  value='0'>...</option>";
 	while($row=$info->fetch_assoc()){
-		echo "<option class='quest'  name='$name'  value=".$row['ID'].">".$row['NAME']."</option>";
+		echo "<option style='background-color: rgb(40, 182, 123);' class='quest'  name='$name'  value=".$row['ID'].">".$row['NAME']."</option>";
     }
 }
 
@@ -29,7 +30,7 @@ function viewradio($info, $name){
 
 function viewCheckbox($info, $name){
 	while($row=$info->fetch_assoc()){
-		echo "<li><input class='check'  name='$name' type='checkbox' name='option1'value=".$row['ID'].">".$row['NAME']."</li>";
+		echo "<li><input class='check'  name='checks[]' type='checkbox' name='option1'value=".$row['ID'].">".$row['NAME']."</li>";
     }
 }
 
@@ -38,4 +39,8 @@ function viewInput($info, $name){
 		echo "<li><input class='quest' name='$name' id='".$row['ID']."' value='".$row['NAME']."' autofocus><button class='next' id='next'>&#10004;</button></li>";
     }
 }
+// function saveValues(&$mysqli,){
+
+// }
+
 ?>

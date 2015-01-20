@@ -42,6 +42,34 @@ if(!$connect = $mysqli->query( $sqlbd)){
         }
         
     }
+    
+    //Especifica
+    $key="Casa";//nombre tabla
+    
+    $sql="DROP TABLE ".$key;
+    if(!$mysqli->query($sql)) echo'<div class="alertFAIL">No Existe la tabla '.$key.' por lo que se ha creado.</div>';
+
+    //CREATE TIPOS
+    $sql="CREATE TABLE IF NOT EXISTS ".$key."
+           (ID        INT NOT NULL AUTO_INCREMENT,
+            NAME     VARCHAR(200),
+            id_tipo     INT,
+            id_zona     INT,
+            id_dorm     INT,
+            id_precio   INT,
+            id_extra    varchar(5),
+            CONSTRAINT ".$key."_pk PRIMARY KEY (ID)) engine=InnoDB;";
+    $mysqli->query("SET NAMES 'utf8'");
+    if(!$resultado = $mysqli->query($sql))
+        echo'<div class="alertFAIL">Error al crear la tabla</div>';
+
+    //INSERT's
+    foreach($value as $v){
+        $sql="INSERT INTO ".$key." (NAME) VALUES ('".$v."');"; 
+        $mysqli->query("SET NAMES 'utf8'");
+        if (!$resultado = $mysqli->query($sql))
+            echo'<div class="alertFAIL">Error al Insertar en '.$key.'-'.$v.'</div>';
+    }
     $mysqli->close();
  echo '<META http-equiv="refresh" content="2;URL=../index.php">';
 }
