@@ -150,5 +150,8 @@ ul{
     text-decoration: none;
     display: inline-block;
 }
+button.notifi {
+	    background: darkslategrey;
+}
 
 /*--- --- ---*/

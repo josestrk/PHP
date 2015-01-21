@@ -1,5 +1,5 @@
 <?php
-require('configure.php');
+ require('../configure.php');
 $mysqli = new mysqli(SERVER, USER, PASS);
 
 if ( $mysqli->connect_errno ) {

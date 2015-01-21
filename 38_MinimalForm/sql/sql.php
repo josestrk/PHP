@@ -30,7 +30,7 @@ function viewradio($info, $name){
 
 function viewCheckbox($info, $name){
 	while($row=$info->fetch_assoc()){
-		echo "<li><input class='check'  name='checks[]' type='checkbox' name='option1'value=".$row['ID'].">".$row['NAME']."</li>";
+		echo "<li><input class='check'  name='".$name."[]' type='checkbox' name='option1' value=".$row['ID'].">".$row['NAME']."</li>";
     }
 }
 
@@ -40,7 +40,7 @@ function viewInput($info, $name){
     }
 }
 
-function saveValues(&$mysqli,$name,$id_tipo,$id_zona,$id_dorm,$id_precio,$id_extra){
+function saveValues($mysqli,$name,$id_tipo,$id_zona,$id_dorm,$id_precio,$id_extra){
     $sql="INSERT INTO casa
     (NAME,id_tipo,id_zona,id_dorm,id_precio,id_extra) 
     VALUES ('".$name."',".$id_tipo.",".$id_zona.",".$id_dorm.",".$id_precio.",'".$id_extra."');"; 
@@ -49,11 +49,22 @@ function saveValues(&$mysqli,$name,$id_tipo,$id_zona,$id_dorm,$id_precio,$id_ext
         echo'<div class="alertFAIL">Error al Insertar datos</div>';
     else
         echo "Añadida exitosamente";
-    mostrarBusqueda($mysqli,$id);
 }
 
-function mostrarBusqueda(&$msqli,$filter1){
-    //hacer búsqueda parametrizada al sql
-    
+function mostrarBusqueda($mysqli,$filter){
+    $sql='SELECT * FROM casa WHERE id_tipo='.$filter[0].' AND id_zona='.$filter[1].' AND id_dorm='.$filter[2].' AND id_precio='.$filter[3];
+    $sql.= (isset($filter[4])) ? ' AND id_extra like \''.$filter[4].'%\'' : " ";
+
+    if(!$resultado = $mysqli->query($sql)){
+        throw new Exception ('No se accedio a datos');
+    }else{
+        if(empty($row)){
+            echo "<div class='questions'>No hay casas disponibles para este filtro</div>";
+        }else{
+            while($row=$resultado->fetch_assoc()){
+             echo "<div class='questions'>".$row['NAME']."</div>";
+            }
+        }
+    }
 }
 ?>

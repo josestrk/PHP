@@ -1,40 +1,42 @@
 <!doctype html>
-<head><meta http-equiv="Content-Type" content="charset=utf-8">
-<?php
-require('conection.php');
-include('style.css');
-require('funciones.php');
-?>
-<style>
-body {
-    background-image:url(<?php echo $_COOKIE['background'] ?>);
-    text-align: left;
-}
-.cartel{
-    width: 30%;
-    height: 400px;
-    border-bottom: 2px groove <?php echo  $_COOKIE['box-color'] ?>;
-    margin: 20px 15px;
-    box-shadow: 0px 10px 20px <?php echo $_COOKIE['box-color']?>;
-    float: left;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    background-size: 100% 100%;
-}
-.cartel > h1 {
-    margin-top: 245px;
-    margin-left: inherit;
-    border-radius-right: none; 
-}
-.cartel > *{
-    border-radius: 5px;
-    color: <?php echo $_COOKIE['color']?>;
-    padding: 7px;
-    background-color: rgba(255,255,255,0.8);
-    margin-left: 4px;
-    box-shadow: 2px 1px 9px #CCC;
-}
-</style>
+<head>
+	<meta http-equiv="Content-Type" content="charset=utf-8">
+	<?php
+	include('style.css');
+	require('conection.php');
+	require('funciones.php');
+	?>
+	<style>
+	/*Estilo modificado por cookies*/
+	body {
+	    background-image:url(<?php echo $_COOKIE['background'] ?>);
+	    text-align: left;
+	}
+	.cartel{
+	    width: 30%;
+	    height: 400px;
+	    border-bottom: 2px groove <?php echo  $_COOKIE['box-color'] ?>;
+	    margin: 20px 15px;
+	    box-shadow: 0px 10px 20px <?php echo $_COOKIE['box-color']?>;
+	    float: left;
+	    overflow-y: hidden;
+	    overflow-x: hidden;
+	    background-size: 100% 100%;
+	}
+	.cartel > h1 {
+	    margin-top: 245px;
+	    margin-left: inherit;
+	    border-radius-right: none; 
+	}
+	.cartel > *{
+	    border-radius: 5px;
+	    color: <?php echo $_COOKIE['color']?>;
+	    padding: 7px;
+	    background-color: rgba(255,255,255,0.8);
+	    margin-left: 4px;
+	    box-shadow: 2px 1px 9px #CCC;
+	}
+	</style>
 </head>
 <body>
 <?php
@@ -70,8 +72,9 @@ if(!isset($_COOKIE['Fecha']) && !isset($_COOKIE['idioma']) && !isset($_COOKIE['b
 			}catch(Exception $e){
 				echo'<div class="alert">'.$e->getMessage().'</div>';
 			}
-			echo '<a href="index35.php?edit=true" class=\'btn\'>Editar Peliculas</a>'.
-			'<a href="crear.php" class=\'btn\' >Crear bbdd</a>'
+			echo '<a href="quit.php" class=\'btn\' >Borrar cookies</a>'
+			.'<a href="index35.php?edit=true" class=\'btn\'>Editar Peliculas</a>'
+			.'<a href="crear.php" class=\'btn\' >Crear bbdd</a>'
 		.'</div>';
 		try{
 			mostrar($mysqli);
@@ -90,7 +93,6 @@ if(!isset($_COOKIE['Fecha']) && !isset($_COOKIE['idioma']) && !isset($_COOKIE['b
 		}
 	}
 }
-
 ?>
 </body>
 </html>

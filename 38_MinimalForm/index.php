@@ -22,9 +22,24 @@
         unset($_SESSION);
         session_destroy();
     }
-    function mostrar(){
-        echo ">".$_SESSION['r1'][0]."-".$_SESSION['r2'][1]."-".$_SESSION['r3'][2]."-".$_SESSION['r4'][3]
-            ."-(".$_SESSION['r5']['checks'][0],$_SESSION['r5']['checks'][1],$_SESSION['r5']['checks'][2].")";
+    function filtrar(){
+        unset($_SESSION['i']);
+
+        $filter=array();
+
+        foreach ($_SESSION as $value) {
+            foreach ($value as $data) {
+                if(is_array($data)){
+                    $aux="";
+                    foreach ($data as $res) 
+                        $aux.="%".$res;
+                    array_push($filter,$aux);
+                }else{
+                    array_push($filter,$data);
+                }
+            }
+        }
+        return $filter;
     }
     
 //varialbes
@@ -75,7 +90,7 @@
         echo '<span class="alert">OFF';
     }
     echo '</span>'
-    .'<a href="'.$_SERVER['PHP_SELF'].'?delete" class="notifi" >Borrar cookies</a>'
+    .'<a href="'.$_SERVER['PHP_SELF'].'?delete" class="notifi" >Buscar casas</a>'
     .'<form acction="'.$_SERVER['PHP_SELF'].'" mothod="post" style="display: inline;">'
     .'<button name="edit" class="notifi" >Crear casa</button></form>';
     echo '</div>';
@@ -97,11 +112,11 @@
                 <li id="'.($i).'" class="questinfo"><ul>';
                     if($value=='select')
                     {
-                        echo '<li><select onchange="this.form.submit()" class="quest" name='.($i).'>';
-                        select($mysqli, $key,$value,$i);
+                        echo '<li><select onchange="this.form.submit()" class="quest" name="res">';
+                        select($mysqli, $key,$value,'res');
                         echo '</select></li>';
                     }else{
-                        select($mysqli, $key,$value,$i);
+                        select($mysqli, $key,$value,'res');
                     }
                     echo '</ul></li><li><button class="next" id="next">&#10140;</button>
         <a href="index.php?back" class="next" id="back">&#10140;</a></li>';
@@ -109,12 +124,18 @@
             $i++;
             $_SESSION['i'] = $i;
         }else{
-            mostrar();
             if(isset($_SESSION['edit'])){
-               saveValues($mysqli,$_SESSION['r1'][0],$_SESSION['r2'][1],
-                          $_SESSION['r3'][2],$_SESSION['r4'][3],$_SESSION['r5'][4],
-                          $_SESSION['r6'][0].",".$_SESSION['r6'][1].",".$_SESSION['r6'][2]);
+                $extras=isset($_SESSION['r6']['res'][0]) ? $_SESSION['r6']['res'][0] : " ";
+                $extras.=isset($_SESSION['r6']['res'][1]) ? $_SESSION['r6']['res'][1] : " ";
+                $extras.=isset($_SESSION['r6']['res'][2]) ? $_SESSION['r6']['res'][2] : " ";
+                
+                saveValues($mysqli,$_SESSION['r1']['res'],$_SESSION['r2']['res'],$_SESSION['r3']['res'],
+                    $_SESSION['r4']['res'],$_SESSION['r5']['res'],$extras);
+                //para borrar el campo nombre de session y poder mostrar la casa
+                unset($_SESSION['edit']);
+                unset($_SESSION['r1']);
             }
+            mostrarBusqueda($mysqli,filtrar());
             delete();
         }
         ?>
