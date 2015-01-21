@@ -153,5 +153,8 @@ ul{
 button.notifi {
 	    background: darkslategrey;
 }
+button.notifi:hover {
+	    background: slategrey;
+}
 
 /*--- --- ---*/

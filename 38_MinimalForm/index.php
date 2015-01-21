@@ -112,7 +112,7 @@
                 <li id="'.($i).'" class="questinfo"><ul>';
                     if($value=='select')
                     {
-                        echo '<li><select onchange="this.form.submit()" class="quest" name="res">';
+                        echo '<li><select onchange="this.form.submit()" autofocus class="quest" name="res">';
                         select($mysqli, $key,$value,'res');
                         echo '</select></li>';
                     }else{
@@ -123,6 +123,14 @@
             }
             $i++;
             $_SESSION['i'] = $i;
+            echo '</ol>
+            <div class="controls">
+            <div class="progress" id="barra"></div>
+            <span class="number" id="number">
+            '.($i).'/'.$max.'
+            </span>
+            <span class="error-message"></span>
+            </div>';
         }else{
             if(isset($_SESSION['edit'])){
                 $extras=isset($_SESSION['r6']['res'][0]) ? $_SESSION['r6']['res'][0] : " ";
@@ -139,16 +147,6 @@
             delete();
         }
         ?>
-        </ol>
-        <div class="controls">
-            <div class="progress" id="barra"></div>
-            <span class="number" id="number">
-                <?php
-                    echo ($i)."/$max";
-                ?>
-            </span>
-            <span class="error-message"></span>
-        </div>
     </form>		
     </div>
 </section>

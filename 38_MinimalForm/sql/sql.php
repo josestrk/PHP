@@ -59,7 +59,7 @@ function mostrarBusqueda($mysqli,$filter){
         throw new Exception ('No se accedio a datos');
     }else{
         if(empty($row)){
-            echo "<div class='questions'>No hay casas disponibles para este filtro</div>";
+            echo "<div class='questions'>No hay casas disponibles para este filtro<br><a href='".$_SERVER['PHP_SELF']."?delete' class='notifi' >Refescar filtros</a></div>";
         }else{
             while($row=$resultado->fetch_assoc()){
              echo "<div class='questions'>".$row['NAME']."</div>";
