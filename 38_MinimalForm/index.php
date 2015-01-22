@@ -15,6 +15,7 @@
     require_once('config.php');
     require_once('sql/connection.php');
     require_once('sql/sql.php');
+    require_once('imagen/photo.php');
 
 //functions
     function delete(){
@@ -22,11 +23,9 @@
         unset($_SESSION);
         session_destroy();
     }
-    function filtrar(){
+    function filter(){
         unset($_SESSION['i']);
-
         $filter=array();
-
         foreach ($_SESSION as $value) {
             foreach ($value as $data) {
                 if(is_array($data)){
@@ -47,8 +46,15 @@
     $i = isset($_SESSION['i']) ? $_SESSION['i'] : 0 ;
     //comprivación de tipo de acción (si cambio a modo edit reseteo indice y cambio array)
     if(isset($_GET['edit'])){ $_SESSION['edit']=true; $i=0;}
+
     //Guardar la respuesta a la pregunta que emite
-    if(isset($_POST) && $i!=0) $_SESSION['r'.$i]=$_POST;
+    if(isset($_POST) && $i!=0){
+        if($i==2 && isset($_SESSION['edit'])){
+            $_SESSION['q'.$i] = isset($_FILE['img']) ? "imagen/".UpPhoto("imagen",'img') 
+                : "imagen/default.jpg" ;
+        }else
+            $_SESSION['q'.$i]=$_POST;
+    }
 
     $array= 
         (!isset($_SESSION['edit'])) ?
@@ -61,6 +67,7 @@
         :
         array(
         array('Casa'=> 'input'),
+        array('Imagen'=> 'file'),
         array('Tipo' => 'select'),
         array('Zona' => 'radio'),
         array('Dormitorios'=>  'radio'),
@@ -102,11 +109,11 @@
 <section>
 
     <div class="simform-inner">
-    <form action=<?php echo "$_SERVER[PHP_SELF]"; ?> method="post" id="theForm" class="simform" autocomplete="off">
+    <form  action=<?php echo "$_SERVER[PHP_SELF]"; ?> method="post" id="theForm" class="simform" autocomplete="off" enctype='multipart/form-data'>
         <?php
         if($i<$max){
             foreach($array[$i] as $key => $value) {
-                 echo '
+                echo '
                 <span><label for="'.($i).'"></label>'.$key.'</span>
                 <ol class="questions">
                 <li id="'.($i).'" class="questinfo"><ul>';
@@ -115,11 +122,15 @@
                         echo '<li><select onchange="this.form.submit()" autofocus class="quest" name="res">';
                         select($mysqli, $key,$value,'res');
                         echo '</select></li>';
+                    }elseif($key=="Casa" || $key=="Imagen" ){
+                        selectNoTable($value,'res');
                     }else{
                         select($mysqli, $key,$value,'res');
                     }
-                    echo '</ul></li><li><button class="next" id="next">&#10140;</button>
-        <a href="index.php?back" class="next" id="back">&#10140;</a></li>';
+                    echo '</ul></li>
+                    <li><button class="next" id="next" type="submit">&#10140;</button>
+                        <a href="index.php?back" class="next" id="back">&#10140;</a>
+                    </li>';
             }
             $i++;
             $_SESSION['i'] = $i;
@@ -133,17 +144,21 @@
             </div>';
         }else{
             if(isset($_SESSION['edit'])){
-                $extras=isset($_SESSION['r6']['res'][0]) ? $_SESSION['r6']['res'][0] : " ";
-                $extras.=isset($_SESSION['r6']['res'][1]) ? $_SESSION['r6']['res'][1] : " ";
-                $extras.=isset($_SESSION['r6']['res'][2]) ? $_SESSION['r6']['res'][2] : " ";
-                
-                saveValues($mysqli,$_SESSION['r1']['res'],$_SESSION['r2']['res'],$_SESSION['r3']['res'],
-                    $_SESSION['r4']['res'],$_SESSION['r5']['res'],$extras);
+                $extras=isset($_SESSION['q7']['res'][0]) ? $_SESSION['q7']['res'][0] : " ";
+                $extras.=isset($_SESSION['q7']['res'][1]) ? $_SESSION['q7']['res'][1] : " ";
+                $extras.=isset($_SESSION['q7']['res'][2]) ? $_SESSION['q7']['res'][2] : " ";
+                saveValues($mysqli,$_SESSION['q1']['res'],$_SESSION['q2'],$_SESSION['q3']['res'],
+                    $_SESSION['q4']['res'],$_SESSION['q5']['res'],$_SESSION['q6']['res'],$extras);
                 //para borrar el campo nombre de session y poder mostrar la casa
                 unset($_SESSION['edit']);
-                unset($_SESSION['r1']);
+                unset($_SESSION['q1']);
+                unset($_SESSION['q2']);
             }
-            mostrarBusqueda($mysqli,filtrar());
+            if(sizeof($_SESSION)<5){
+                $filter= "Error no se añadieron todos los filtros";
+            }else{
+                viewSearch($mysqli,filter());
+            }
             delete();
         }
         ?>

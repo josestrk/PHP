@@ -57,6 +57,7 @@ if(!$connect = $mysqli->query( $sqlbd)){
     $sql="CREATE TABLE IF NOT EXISTS ".$key."
            (ID        INT NOT NULL AUTO_INCREMENT,
             NAME     VARCHAR(200),
+            IMAGEN   VARCHAR(200),
             id_tipo     INT,
             id_zona     INT,
             id_dorm     INT,
@@ -76,8 +77,8 @@ if(!$connect = $mysqli->query( $sqlbd)){
 
     //INSERT's
     $sql="INSERT INTO ".$key."
-    (NAME,id_tipo,id_zona,id_dorm,id_precio,id_extra) 
-    VALUES ('".$v."',1,1,1,1,'123');"; 
+    (NAME,IMAGEN,id_tipo,id_zona,id_dorm,id_precio,id_extra) 
+    VALUES ('".$v."','imagen/default.jpg',1,1,1,1,'123');"; 
     $mysqli->query("SET NAMES 'utf8'");
     if (!$resultado = $mysqli->query($sql))
         echo'<div class="alertFAIL">Error al Insertar en '.$key.'-'.$v.'</div>';

@@ -15,7 +15,6 @@
 /* Question list style */
 .simform ol {
 	margin: 0;
-/*	padding: 0;*/
 	list-style: none;
 	position: relative;
 	-webkit-transition: height 0.4s;
@@ -112,6 +111,22 @@ ul{
     height: 20px;
 }
 
+.simform table {
+	margin: 0;
+	position: relative;
+	-webkit-transition: height 0.4s;
+	transition: height 0.4s;
+	width: 100%;
+	height: auto;
+	background-color: rgba(0,0,0,0.1);
+}
+td{
+     border:3px solid rgba(0,0,0,0.01);
+}
+th{
+    border-bottom:3px solid rgba(0,0,0,0.1);
+}
+
 /*--- Alerts ---*/
 .alert{
     -webkit-border-radius: 11;
@@ -156,5 +171,4 @@ button.notifi {
 button.notifi:hover {
 	    background: slategrey;
 }
-
 /*--- --- ---*/
