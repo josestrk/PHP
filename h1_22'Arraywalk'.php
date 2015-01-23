@@ -1,5 +1,5 @@
 <?php
-include('style.css');
+include_once("style/style_old.css");
 /*22. Crear un programa que nos visualiza en una tabla  el arrray que contiene los meses del año.
 Utilizar para ello array_walk($meses,’escribir_tabla’);
 */

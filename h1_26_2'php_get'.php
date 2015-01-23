@@ -3,7 +3,7 @@
 <?php
 /*26. Captcha
 */
-require_once('style.css');
+include_once("style/style_old.css");
 if(isset($_GET['text'])){
     $txt=$_GET['text'];
 }else{

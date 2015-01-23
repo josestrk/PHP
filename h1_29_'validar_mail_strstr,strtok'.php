@@ -1,7 +1,7 @@
 <!doctype html>
 <head><meta http-equiv="Content-Type" content="charset=utf-8">
 <?php
-require_once('style.css');
+include_once("style/style_old.css");
 if(isset($_POST['mail'])){
     $txt=$_POST['mail'];
 }else{

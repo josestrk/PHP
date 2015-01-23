@@ -1,7 +1,7 @@
 <!doctype html style="height: 100%;">
 <head><meta http-equiv="Content-Type" content="charset=utf-8">
 <?php
-require_once('../style.css');
+require_once('../style/style_old.css');
 require_once("../h1_21'Clases,constructor'.php");
 
 $c=new Cabecera('Librería',"ligthblue","#fff");

@@ -2,7 +2,7 @@
 <head><meta http-equiv="Content-Type" content="charset=utf-8">
 
 <?php
-require_once("style.css");
+require_once("style/style_old.css");
 ?>
 
 </head>

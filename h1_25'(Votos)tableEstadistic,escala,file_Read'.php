@@ -4,7 +4,7 @@
 /*25. Recuento de votos de votos de una elección. 
 Realizar el escrutinio y presentar los resultados de los países candidatos
 */
-require_once('style.css');
+include_once("style/style_old.css");
 require_once("h1_21'Clases,constructor'.php");
 $c=new Cabecera('VOTOS',"lightblue","#fff");
 $c->dibujar();
