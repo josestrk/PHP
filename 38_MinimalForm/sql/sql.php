@@ -1,6 +1,6 @@
 <?php
 //selection input and load info to bbdd
-function select(&$mysqli, $table, $tp, $name){
+function select($mysqli, $table, $tp, $name){
     $sql='SELECT * FROM '.$table;
     if(!$resultado = $mysqli->query($sql)){
         throw new Exception ('No se accedio a datos');
@@ -14,6 +14,7 @@ function select(&$mysqli, $table, $tp, $name){
 	    }
 	}
 }
+
 function selectNoTable($tp, $name){
     switch($tp){
         case 'file': viewImputFile($name);break;
@@ -50,7 +51,7 @@ function viewInput($name){
 
 //file
 function viewImputFile($name){
-    echo "<li><input type='file' onchange='this.form.submit()' class='quest' name='img' autofocus></li>";
+    echo "<li><input type='file' class='quest' name='img' autofocus><input type='submit' value='->'></li>";
 }
 
 function saveValues($mysqli,$name,$img,$id_tipo,$id_zona,$id_dorm,$id_precio,$id_extra){
