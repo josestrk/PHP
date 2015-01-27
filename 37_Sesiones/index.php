@@ -11,28 +11,29 @@ function delete(){
 	unset($_SESSION);
 	session_destroy();
 }
-if(isset($_GET['delete'])){
+
+if( isset($_GET['delete']) ){
 	delete();
 }else{
-	if(isset($_POST['name']) && isset($_POST['pass'])){
-		if($_POST['name']=='alumno' && $_POST['pass']=='123456'){
-			if(isset($_SESSION['id']))
+	if( isset($_POST['name']) && isset($_POST['pass']) ){
+		if( $_POST['name'] == 'alumno' && $_POST['pass'] == '123456' ){
+			if( isset($_SESSION['id']) )
 				delete();
-			$_SESSION['id']=$_POST;
+			header( 'Location: informacion.php?'.SID );
 		}else{
 			$sw=false;
 		}
 	}
 }
 
-include('../style/style.css');
+include( '../style/style.css' );
 ?>
 </head>
 <body>
 <?php
-if(isset($_SESSION['id'])){
+if( isset($_SESSION['id']) ){
 	echo '<div class="notifi">Gracias por Iniciar sesion</div>';
-	echo '<META http-equiv="refresh" content="0.5;URL=informacion.php">';
+	echo '<META http-equiv="refresh" content="0.5;URL=informacion.php?'.SID.'">';
 }else{
 	echo '<div class="formLS">
 <h2>Log In</h2>
@@ -44,7 +45,7 @@ if(isset($_SESSION['id'])){
 	</div>';
 
 }
-if(isset($sw)){
+if( isset($sw) ){
 	echo '<div class="alert">Error, Usuario inexistente</div>';
 }
 

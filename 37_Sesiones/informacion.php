@@ -22,12 +22,13 @@ if(isset($_GET['delete'])){
 <body>
 <?php
 if(!isset($_SESSION['id'])){
-	echo '<META http-equiv="refresh" content="0.1;URL=index.php">';
+	echo '<div class="alet">No se envio session</div>';
+	echo '<META http-equiv="refresh" content="1.1;URL=index.php">';
 }else{
 	echo '<div class="formLS">
 		<h2>Logged</h2>
-	    <a class="btn" href="'.$_SERVER['PHP_SELF'].'?delete">Log Out</a>
-	    <a class="btn" href="'.$_SERVER['PHP_SELF'].'?search">Buscar</a>
+	    <a class="btn" href="'.$_SERVER['PHP_SELF'].'?delete=1&'.SID.'">Log Out</a>
+	    <a class="btn" href="'.$_SERVER['PHP_SELF'].'?search=1&'.SID.'">Buscar</a>
 	</div>';
 }
 if (isset($_GET['search'])) {
