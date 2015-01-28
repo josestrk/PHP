@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <title>Ejercicio 38</title>
-
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
     <link rel="stylesheet" type="text/css" href="css/st.css" />
-
-
-    <?php
+</head>
+<body>
+<?php
 //includes
     session_start();
     require_once('config.php');
@@ -18,16 +17,15 @@
     require_once('imagen/photo.php');
     require_once('function.php');
     
-    //indice de questions
+//indice de questions
     $i = isset($_SESSION['i']) ? $_SESSION['i'] : 0 ;
-    //comprivación de tipo de acción (si cambio a modo edit reseteo indice y cambio array)
+//comprivación de tipo de acción (si cambio a modo edit reseteo indice y cambio array)
     if(isset($_GET['edit'])){ $_SESSION['edit']=true; $i=0;}
 
-    //Guardar la respuesta a la pregunta que emite
+//Guardar la respuesta a la pregunta que emite
     if(isset($_POST) && $i!=0){
         if($i==2 && isset($_SESSION['edit'])){
-            $_SESSION['q'.$i] = isset($_FILE) ? "imagen/".UpPhoto("imagen",'res') 
-                : "imagen/default.jpg" ;
+            $_SESSION['q'.$i] = isset($_FILES['res']) ? UpPhoto("imagen/",'res') : "imagen/default.jpg" ;
         }else
             $_SESSION['q'.$i]=$_POST;
     }
@@ -39,7 +37,7 @@
     
     $max=sizeof($array);
 
-    //variables condicionales
+//variables condicionales
     if(isset($_GET['delete'])){
         delete();
         echo '<META http-equiv="refresh" content="0;URL=index.php">';
@@ -47,9 +45,7 @@
     if(isset($_GET['back'])){
         $i=$i-2;
     }
-    ?>
-</head>
-<body>
+?>
 <div class="container">
 <!-- Top Navigation -->
 <?php

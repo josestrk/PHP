@@ -4,8 +4,24 @@ function UpPhoto($dir,$name){
 	$nombre = microtime(true) * 10000;
 	$imageFileType = pathinfo(basename($_FILES[$name]["name"]),PATHINFO_EXTENSION);
 	$target_file = $target_dir . $nombre.'.'. $imageFileType ;
-	
+
 	$uploadOk = 1;
+
+	// Fichero y nuevo tamaño
+	$nombre_fichero = $_FILES[$name]["tmp_name"];//$_FILES[$nombre];
+	// Tipo de contenido
+
+	// Obtener los nuevos tamaños
+	list($ancho, $alto) = getimagesize($nombre_fichero);
+	$nuevo_ancho =300;
+	$nuevo_alto = 300;
+	// Cargar
+	$thumb = imagecreatetruecolor($nuevo_ancho, $nuevo_alto);
+	$origen = imagecreatefromjpeg($nombre_fichero);
+
+	// Cambiar el tamaño
+	imagecopyresized($thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto);
+
 
 	// Check if image file is a actual image or fake image
 	if(isset($_POST["submit"])) {
@@ -22,7 +38,7 @@ function UpPhoto($dir,$name){
 	    throw new Exception ("Sorry, file already exists.");
 	    $uploadOk = 0;
 	}
-	// Check file size
+	// Check file size Bites
 	if ($_FILES[$name]["size"] > 50000000) {
 	    throw new Exception ("Sorry, your file is too large");
 	    $uploadOk = 0;
@@ -38,7 +54,7 @@ function UpPhoto($dir,$name){
 	    throw new Exception ("Sorry, your file was not uploaded.");
 	    return false;
 	} else {
-	    if (!move_uploaded_file($_FILES[$name]["tmp_name"], $target_file)) {
+	    if (!move_uploaded_file($nombre_fichero, $target_file)) {
 	        throw new Exception ("Sorry, there was an error uploading your file.");
 	        return false;
 	    }

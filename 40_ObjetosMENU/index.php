@@ -29,6 +29,10 @@ class Menu{
 		$this->menu = array();
 		$this->type = $type;
 	}
+	public function __destruct(){
+		$this->menu = array();
+		$this->type = "";
+	}
 
 	public function insert($item){
 		array_push($this->menu,$item);

@@ -51,7 +51,7 @@ function viewInput($name){
 
 //file
 function viewImputFile($name){
-    echo "<li><input type='file' class='quest' name='img' autofocus><input type='submit' value='->'></li>";
+    echo "<li><input type='file' class='quest' name='res' autofocus><input type='submit' value='>'></li>";
 }
 
 function saveValues($mysqli,$name,$img,$id_tipo,$id_zona,$id_dorm,$id_precio,$id_extra){

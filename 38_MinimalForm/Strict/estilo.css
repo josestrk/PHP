@@ -1,0 +1,39 @@
+body {
+	font-family: Verdana;
+}
+
+h1 {
+	color: rgb(0, 0, 128);
+}
+
+.gris {
+	color: rgb(192, 192, 192);
+}
+
+.azul {
+	color: rgb(128, 192, 255);
+}
+
+.paso {
+	font-style: italic;
+}
+
+.busqueda {
+	color: rgb(128, 128, 128);
+	font-size: 80%;
+}
+
+fieldset {
+	max-width: 900px;
+	border-color: rgb(128, 192, 255);
+}
+
+th {
+	padding-right: 20px;
+	text-align: right;
+	vertical-align: top;
+}
+
+table .buttons {
+	padding-top: 20px;
+}
