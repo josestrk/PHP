@@ -8,7 +8,7 @@ $q= array(
     'Zona' => array('Residencial','Rural','Urbana','Exteriores'),
     'Dormitorios'=>  array('1','2','3','4'),
     'Precio'=> array('100.000','200.000','300.000','400.000'),
-    'Extras'=> array('Jardin','Piscina','Garage')
+    'Extras'=> array('Jardin','Piscina','Garage','Nada')
 );
 
 //Crear base de datos

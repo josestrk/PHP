@@ -27,7 +27,7 @@
         if($i==2 && isset($_SESSION['edit'])){
             $_SESSION['q'.$i] = isset($_FILES['res']) ? UpPhoto("imagen/",'res') : "imagen/default.jpg" ;
         }else
-            $_SESSION['q'.$i]=$_POST;
+            empty($_POST) ? $i=$i-1 :  $_SESSION['q'.$i]=$_POST ;
     }
 
     $array= (isset($_SESSION['edit'])) ?
@@ -43,7 +43,7 @@
         echo '<META http-equiv="refresh" content="0;URL=index.php">';
     }
     if(isset($_GET['back'])){
-        $i=$i-2;
+        $i=$i-1;
     }
 ?>
 <div class="container">

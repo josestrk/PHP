@@ -9,19 +9,6 @@ function UpPhoto($dir,$name){
 
 	// Fichero y nuevo tamaño
 	$nombre_fichero = $_FILES[$name]["tmp_name"];//$_FILES[$nombre];
-	// Tipo de contenido
-
-	// Obtener los nuevos tamaños
-	list($ancho, $alto) = getimagesize($nombre_fichero);
-	$nuevo_ancho =300;
-	$nuevo_alto = 300;
-	// Cargar
-	$thumb = imagecreatetruecolor($nuevo_ancho, $nuevo_alto);
-	$origen = imagecreatefromjpeg($nombre_fichero);
-
-	// Cambiar el tamaño
-	imagecopyresized($thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto);
-
 
 	// Check if image file is a actual image or fake image
 	if(isset($_POST["submit"])) {
@@ -54,10 +41,48 @@ function UpPhoto($dir,$name){
 	    throw new Exception ("Sorry, your file was not uploaded.");
 	    return false;
 	} else {
-	    if (!move_uploaded_file($nombre_fichero, $target_file)) {
-	        throw new Exception ("Sorry, there was an error uploading your file.");
-	        return false;
-	    }
+	    list($ancho, $alto) = getimagesize($nombre_fichero);
+        $nuevo_ancho =300;
+        $nuevo_alto = 300;
+        // Cargar
+        $thumb = imagecreatetruecolor($nuevo_ancho, $nuevo_alto);
+        
+        switch($imageFileType){
+            case "jpg":
+                $origen = imagecreatefromjpeg($nombre_fichero);
+                imagecopyresized($thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto);
+                if (!imagejpeg($thumb,$target_file)) {
+                    throw new Exception ("Sorry, there was an error uploading your file.");
+                    return false;
+                }
+            break;
+            case "png":
+                $origen = imagecreatefrompng($nombre_fichero);
+                imagecopyresized($thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto);
+            
+                if (!imagepng($thumb,$target_file)) {
+                    throw new Exception ("Sorry, there was an error uploading your file.");
+                    return false;
+                }
+            break;
+            case "gif":
+                $origen = imagecreatefromgif($nombre_fichero);
+                imagecopyresized($thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto);
+                if (!imagegif($thumb,$target_file)) {
+                    throw new Exception ("Sorry, there was an error uploading your file.");
+                    return false;
+                }
+            break;
+            case "jpeg":
+                $origen = imagecreatefromjpeg($nombre_fichero);
+                imagecopyresized($thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto);
+                if (!imagejpeg($thumb,$target_file)) {
+                    throw new Exception ("Sorry, there was an error uploading your file.");
+                    return false;
+                }
+            break;
+        }
+        
 	    return $target_file;
 	}
 }
