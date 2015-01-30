@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+<!-- Ejercicio ejemplo, ESTE INDEX NO PERTENECE A LA EJECUCION DE index.php -->
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />

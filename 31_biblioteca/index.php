@@ -1,45 +1,32 @@
 <?php
 	session_start();
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="es">
 <head>
 <title>Librer&iacute;a</title>
-	<style type="text/css">
-        @import url("estilo.css");
-    </style>
-	<?php
-
-	if (isset($_SESSION['log']))
-	{
-		$log=$_SESSION['log'];
-			if ($_SESSION['tipo']== "administrador")$admin=true;
-			else $admin=false;
-	}else $log="ERROR no existe usuario";
-    if (isset($_GET['bloc']))$sell=$_GET['bloc'];
-    else $sell="";
-	require_once('conexionmysql.php');
-	require('funcion.php');
-    ?>
-    <SCRIPT LANGUAGE="JavaScript">
-		<!-- Begin Script para popUp de ventana
-		function popUp(URL) {
-		day = new Date();
-		id = day.getTime();
-		eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=400px,height=400px,left = 762,top = 334');");
-		}
-		// End -->
-	</script>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
 <?php
+	if ( isset($_SESSION['log']) ){
+		$log = $_SESSION['log'];
+        $admin = ( $_SESSION['tipo'] == "administrador" ) ? true : false;
+	}else{
+        $log = "ERROR no existe usuario";
+    }
+    
+    $sell = ( isset($_GET['bloc']) ) ? $_GET['bloc'] :"";
+	
+    require_once('bd/conexionmysql.php');
+	require('funcion.php');
 
-if (!isset($_SESSION['log'])){
-	echo '<SCRIPT LANGUAGE="JavaScript">
-		alert("ERROR el usuario no existe registrese");
-		</script>';
-	echo '<meta http-equiv="refresh" content="0;URL=login.php">';
-}
+    if (!isset($_SESSION['log'])){
+        echo '<SCRIPT LANGUAGE="JavaScript">
+        alert("ERROR el usuario no existe registrese");
+        </script>';
+        echo '<meta http-equiv="refresh" content="0;URL=login.php">';
+    }
 ?>
 	<div class="login">
         <?php
@@ -123,4 +110,11 @@ if (!isset($_SESSION['log'])){
         <p>Libreria Jos&eacute; Trincado<br>&hearts;&spades;&clubs;&diams;</p>
     </div>
 </body>
+<script LANGUAGE="JavaScript">
+    function popUp(URL) {
+    day = new Date();
+    id = day.getTime();
+    eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=400px,height=400px,left = 762,top = 334');");
+    }
+</script>
 </html>

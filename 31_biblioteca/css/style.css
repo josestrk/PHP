@@ -1,6 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
-    body{ background-image:url(backindex.jpg); color:#FFF; text-align:center;}
+    body{ 
+        background-image:url(http://images2.alphacoders.com/816/81670.jpg); 
+        color:#FFF; 
+        text-align:center;}
 	typeb{ font-weight:bold;}
 	div.login{
 		background: -moz-linear-gradient( bottom, blue, #0CC);
@@ -12,7 +15,7 @@
 		-moz-border-radius: 4px;
 	}
 	ul.login li{
-					display:Inline;
+        display:Inline;
 	}
 	.newuser{
 		float:right;

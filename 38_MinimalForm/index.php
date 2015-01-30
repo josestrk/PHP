@@ -50,11 +50,9 @@
 <!-- Top Navigation -->
 <?php
     echo '<div style="display:block;text-align: end;">';
-    if(isset($_SESSION)){
-        echo '<span class="notifi">ON';
-    }else{
-        echo '<span class="alert">OFF';
-    }
+    echo (isset($_SESSION)) ? '<span class="notifi">&#10004;<small>cookies</small>' : '<span class="alert">OFF';
+    echo '</span>';
+    echo ($start) ? '<span class="notifi">&#10004;<small>SQL</small>' : '<span class="alert"><a href="sql/crear.php">START</a>';
     echo '</span>'
     .'<a href="'.$_SERVER['PHP_SELF'].'?delete" class="notifi" >Buscar casas</a>'
     .'<form acction="'.$_SERVER['PHP_SELF'].'" mothod="post" style="display: inline;">'
@@ -68,7 +66,7 @@
 <section>
 
 <div class="simform-inner">
-    <form  action=<?php echo "$_SERVER[PHP_SELF]"; ?> method="post" id="theForm" class="simform" autocomplete="off" enctype='multipart/form-data'>
+    <form  action=<?php echo "$_SERVER[PHP_SELF]"; ?> method = "POST" id = "theForm" class = "simform" autocomplete = "off" enctype = 'multipart/form-data'>
     <?php
     if($i<$max){
         mostrar($mysqli,$i,$max,$array[$i]);

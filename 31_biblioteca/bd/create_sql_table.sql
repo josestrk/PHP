@@ -1,4 +1,4 @@
-﻿create database IF NOT EXISTS libreria;
+create database IF NOT EXISTS libreria;
 
 use libreria;
 
@@ -13,5 +13,5 @@ CREATE TABLE libex(
 
 ALTER TABLE `libex` DEFAULT CHARACTER SET utf16 COLLATE utf16_bin;
 
-LOAD DATA INFILE 'C:\\wamp\\www\\jtc\\PHP\\31_biblioteca\\BIBLIOTECA.txt' INTO TABLE libex FIELDS TERMINATED BY ';'  ENCLOSED BY '"' LINES TERMINATED BY '\n';
+LOAD DATA INFILE 'C:\\wamp\\www\\jtc\\PHP\\31_biblioteca\\sql\\BIBLIOTECA.txt' INTO TABLE libex FIELDS TERMINATED BY ';'  ENCLOSED BY '"' LINES TERMINATED BY '\n';
 	
