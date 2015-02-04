@@ -38,7 +38,7 @@ else
 	$_SESSION['log'] = $registro[0];// COGE EN SESION[`LOG`] EL VALOR DE REGISTRO EL LOGIN
 	$_SESSION['tipo'] = $registro[1];// COGE EN SESION[`LOG`] EL VALOR DE REGISTRO EL LOGIN
 	echo '<html> <head>
-	<link href="estilo.css" rel="stylesheet" type="text/css" />
+	<link href="../css/style.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body> 
 		<div class="login">
@@ -50,7 +50,7 @@ else
 		<p><img src="load-in-progress.gif" /></p>
 		</center>
 	  	</div>
-		<meta http-equiv="refresh" content="2;URL=index.php">
+		<meta http-equiv="refresh" content="2;URL=../index.php">
 	</body>
 	</html>';
 }

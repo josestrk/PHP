@@ -156,8 +156,7 @@ table, th, tr, td {
 }
 .cartel > h1 {
     margin-top: 245px;
-    margin-left: inherit;
-    border-radius-right: none; 
+    margin-left: inherit; 
 }
 .cartel > *{
     border-radius: 5px;

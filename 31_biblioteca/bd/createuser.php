@@ -11,7 +11,7 @@ $pas2=$_POST['pass2'];
 		alert("Debes introducir un nombre con mas de 3 caracteres su nombre tiene: '.strlen($login).'");
 		</script> 
 		<body>
-		<meta http-equiv="refresh" content="0;URL=login.php">
+		<meta http-equiv="refresh" content="0;URL=../login.php">
 		</body></html>';
 	}
 	else
@@ -26,7 +26,7 @@ $pas2=$_POST['pass2'];
 				alert("La contraseña no coincide con la comprobación");
 				</script> 
 				<body>
-				<meta http-equiv="refresh" content="0;URL=login.php">
+				<meta http-equiv="refresh" content="0;URL=../login.php">
 				</body></html>';
 			}
 			else
@@ -41,7 +41,7 @@ $pas2=$_POST['pass2'];
 						alert("Usuario ya existe -'.$num_total_registros.'");
 						</script>  
 						<body>
-						<meta http-equiv="refresh" content="0;URL=login.php">
+						<meta http-equiv="refresh" content="0;URL=../login.php">
 						</body></html>';
 					}
 					else
@@ -54,7 +54,7 @@ $pas2=$_POST['pass2'];
 						alert("Usuario creado con exito");
 						</script> 
 						<body>
-						<meta http-equiv="refresh" content="0;URL=login.php">
+						<meta http-equiv="refresh" content="0;URL=../login.php">
 						</body></html>';
 					}
 			}
