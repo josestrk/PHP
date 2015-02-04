@@ -2,12 +2,12 @@
 <html>
 	<head>
     <title>iLibreria</title>
-	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link href="estilo.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
     <div class="login">
         <ul class="login">
-        <form action='bd/comp_login.php' method='POST'>
+        <form action='comp_login.php' method='POST'>
         <li>Usuario: <input name="nombre" type="text" size="13px"></li>
         <li>Contrase&ntilde;a: <input name="pass" type="password" size="13px"></li>
         <li><input type='submit' value='Entrar' class="submit"></li>
@@ -25,7 +25,7 @@
 		if(isset($_POST['Nus'])){
 			echo "
 			<div class='crear'>
-			<form action='bd/createuser.php' method='POST'>
+			<form action='createuser.php' method='POST'>
 			<p>
 			Nombre Usuario: <input name='login' type='text' size='13px'><br>
         	Contrase&ntilde;a: <input name='pass1' type='password' size='13px'><br>

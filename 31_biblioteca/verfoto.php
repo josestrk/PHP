@@ -1,6 +1,8 @@
 <HTML>
 <HEAD><TITLE>CARATULA</TITLE>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        @import url("estilo.css");
+    </style>
 </HEAD>
 	<meta http-equiv="Content-Type" content="text/html ; charset=iso-8859-1" >
 <BODY >
