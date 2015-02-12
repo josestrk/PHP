@@ -12,7 +12,7 @@ function filter(){
             if( is_array( $data ) ){
                 $aux = "";
                 foreach ( $data as $res ) 
-                    $aux. = "%" . $res;
+                    $aux.= "%" . $res;
                 array_push( $filter,$aux );
             }else{
                 array_push( $filter,$data );

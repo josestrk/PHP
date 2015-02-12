@@ -14,7 +14,7 @@
 .clearfix:after { clear: both; }
 
 body {
-	background: #26C281;
+	background: whitesmoke;
 	color: rgba(0,0,0,0.45);
 	font-size: 100%;
 	line-height: 1.25;
@@ -53,13 +53,13 @@ a:hover, a:focus {
 
 section {
 	padding: 5em 2em 10em;
-	background: #2dcb89;
+	background: #00CCFF;
 	text-align: center;
 }
 
 section.related {
 	padding: 3em 1em 4em;
-	background: #465650;
+	background: #00CCFF;
 	color: rgba(0,0,0,0.4);
 	font-size: 1.5em;
 }

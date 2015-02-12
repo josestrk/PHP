@@ -16,7 +16,6 @@
     require_once( 'sql/sql.php' );
     require_once( 'imagen/photo.php' );
     require_once( 'function.php' );
-    
 //indice de questions
     $i = isset( $_SESSION['i'] ) ? $_SESSION['i'] : 0 ;
 //comprivación de tipo de acción (si cambio a modo edit reseteo indice y cambio array)
@@ -60,7 +59,7 @@
     echo '</div>';
 ?>
 <header class="codrops-header">
-    <h1>Form to exercise 38 <span>
+    <h1> InfoCasa &#9996; <span>
         <?php echo ( isset( $_GET['edit'] ) || isset( $_SESSION['edit'] ) ) ? 'Añadir casa' : 'Buscar'; ?> </span></h1>	
 </header>
 <section>
@@ -76,7 +75,7 @@
             $extras .= isset( $_SESSION['q7']['res'][1] ) ? $_SESSION['q7']['res'][1] : " ";
             $extras .= isset( $_SESSION['q7']['res'][2] ) ? $_SESSION['q7']['res'][2] : " ";
             
-            saveValues( $mysqli, $_SESSION['q1']['res'], $_SESSION['q2'], 
+            saveValues( $mysqli, $_SESSION['q1']['res_'], $_SESSION['q2'], 
                        $_SESSION['q3']['res'], $_SESSION['q4']['res'], 
                        $_SESSION['q5']['res'], $_SESSION['q6']['res'], $extras );
             
@@ -101,14 +100,19 @@
 <script type="text/javascript">
 var a = <?php echo ( ( $i+1 ) / $max*100 );?>;
 onload = function() {
-    document.getElementById('barra').style.width = a+"%";
-    if (<?php echo ( $i == 1 ) ? 1 : 0 ;  ?>) {
-        document.getElementById('next').style.visibility = 'hidden';
-    }else{
-        document.getElementById('next').style.visibility = 'visible';
-        document.getElementById('back').style.visibility = 'visible';
-    };
+    if (<?php echo ( $i <= 4 ) ? 1 : 0 ;  ?>) {
+        document.getElementById('barra').style.width = a+"%";
+        if (<?php echo ( $i == 0 ) ? 1 : 0 ;  ?>) {
+            document.getElementById('next').style.visibility = 'hidden';
+        }else{
+            document.getElementById('next').style.visibility = 'visible';
+            document.getElementById('back').style.visibility = 'visible';
+        };
+    }
 };
+function callmail(name,img){
+    document.getElementById('mail').style.display='';
+}
 </script>
 </body>
 </html>

@@ -166,7 +166,8 @@ th{
     display: inline-block;
 }
 button.notifi {
-	    background: darkslategrey;
+	    background: #00CCFF;
+        color: whitesmoke;
 }
 button.notifi:hover {
 	    background: slategrey;
