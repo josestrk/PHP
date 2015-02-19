@@ -28,7 +28,7 @@
 				echo '<div class="alert">Error, password o usuario incorrectos</div>';
 			}
 		}
-		echo '<div class="div"><a href="index.php"><button class="root" style="width:300px">Volver a Inicio</button></a></div>';
+		echo '<div class="cartel"><a href="index.php"><button class="root" style="width:300px">Volver a Inicio</button></a></div>';
 	}else{
 		echo '<div class="div"><a href="index.php?it=susciption"><button class="root" style="width:300px">Susciption</button></a></div>';
 		login();

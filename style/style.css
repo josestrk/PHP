@@ -198,3 +198,7 @@ table, th, tr, td {
     font-weight: 700;
     margin: 10px auto;
 }
+
+.table{
+    width:100%;
+}

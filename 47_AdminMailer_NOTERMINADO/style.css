@@ -140,15 +140,10 @@ padding: 10px;
 }
 
 .cartel{
-    width: 30%;
-    height: 400px;
     border-bottom: 2px groove lightgreen;
-    margin: 20px 15px;
-    box-shadow: 0px 10px 20px whitesmoke;
-    float: left;
+    box-shadow: 0px 10px 10px whitesmoke;
     overflow-y: hidden;
     overflow-x: hidden;
-    background-size: 100% 100%;
 }
 
 .cartel > h1 {
@@ -160,10 +155,10 @@ padding: 10px;
 .cartel > *{
     border-radius: 5px;
     color: grey;
-    padding: 7px;
     background-color: rgba(255,255,255,0.8);
-    margin-left: 4px;
-    box-shadow: 2px 1px 9px #CCC;
+    margin: 4px;
+    box-shadow: 0px 1px 9px #CCC;
+    padding: 6px 0px;
 }
 
 .div{
