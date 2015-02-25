@@ -10,7 +10,7 @@ function checkfile($file){
         $info = 'l';
     } elseif (($permisos & 0x8000) == 0x8000) {
         // Regular
-        $info = '-';
+        $info = 'file';
     } elseif (($permisos & 0x6000) == 0x6000) {
         // Especial Bloque
         $info = 'b';
@@ -32,7 +32,7 @@ function checkfile($file){
 function checkperm($file){
     $permisos = fileperms($file);
     // Propietario
-    $info .= (($permisos & 0x0100) ? 'r' : '-');
+    $info = (($permisos & 0x0100) ? 'r' : '-');
     $info .= (($permisos & 0x0080) ? 'w' : '-');
     $info .= (($permisos & 0x0040) ?
                 (($permisos & 0x0800) ? 's' : 'x' ) :
