@@ -2,7 +2,22 @@
 <head>
 	<meta http-equiv="Content-Type" content="charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="../style/style.css" />
+    <style type="text/css">
+    #mydiv {
+        top: 50%;
+        left: 50%;
+        width: 30em;
+        height: 18em;
+        margin-top: -9em;
+        margin-left: -15em;
+        border: 1px solid #ccc;
+        background-color: #F3F3FD;
+        position: fixed;
+        overflow: scroll;
+    }
+    </style>
 </head>
+
 <body>
 <div class='div'>
     <h2>Introduce extensión</h2>
@@ -13,20 +28,6 @@
         <input type="checkbox" name="open" value="1"/> Desplegar los directorios
     </form>
 </div>
-<style type="text/css">
-#mydiv {
-    top: 50%;
-    left: 50%;
-    width: 30em;
-    height: 18em;
-    margin-top: -9em;
-    margin-left: -15em;
-    border: 1px solid #ccc;
-    background-color: #F3F3FD;
-    position: fixed;
-    overflow: scroll;
-}
-</style>
 <?php
 require ('functions.php');
 
@@ -48,7 +49,7 @@ function infoFile($file, $i){
             echo '<script>
                     document.getElementById("showFile'. $i .'").onclick = function(){
                         document.getElementById("showFile'. $i .'").innerHTML = "';
-                        echo '<div id=\"mydiv\">'.replaceNewLines(htmlentities(htmlspecialchars($arc)), "<br>").'</div>"
+                                    echo '<div id=\"mydiv\">'.replaceNewLines(htmlentities(htmlspecialchars($arc)), "<br>").'</div>"
                     }
                     </script>';
 
