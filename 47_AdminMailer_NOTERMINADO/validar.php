@@ -12,7 +12,6 @@ function validate($user,$pass){
 		if( $result->num_rows != 1 ){
 			$sw=!$sw;
 		}else{
-			session_start();
 			$registro=$result->fetch_row();		
 			$_SESSION['intenconex'] = 0;// para que el usuario al salir no le de el aviso de error
 			$_SESSION['db_is_logged_in'] = true;// activa la sesion
