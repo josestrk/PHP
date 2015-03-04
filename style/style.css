@@ -1,4 +1,5 @@
- @font-face {
+<style>
+@font-face {
     font-family: OpenSans-Regular;
     src: url('OpenSans-Regular.ttf');
 }
@@ -202,3 +203,4 @@ table, th, tr, td {
 .table{
     width:100%;
 }
+</style>
