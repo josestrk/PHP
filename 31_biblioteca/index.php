@@ -44,7 +44,7 @@
             <li>Buscar libros por titulo o autor ('*' para listado completo)</li>
             <form action="index.php" method="get">
             <li><INPUT TYPE="text" SIZE="20" VALUE=<?php
- echo "$sell"; ?> NAME="bloc"><input type="submit" value="Buscar" name=orden		 /> </li>
+ echo "$sell"; ?> name="bloc"><input type="submit" value="Buscar" name=orden		 /> </li>
             </form>
             <?php
  

@@ -20,7 +20,7 @@ function sendmail(){
   $mail->Mailer = "smtp";
 
   //Asignamos a Host el nombre de nuestro servidor smtp
-  $mail->Host = "smtp.hotpop.com";
+  $mail->Host = "smtp.makeonweb.com";
 
   //Le indicamos que el servidor smtp requiere autenticación
   $mail->SMTPAuth = true;
@@ -29,8 +29,7 @@ function sendmail(){
   $mail->Username = "jose@makeonweb.com"; 
   $mail->Password = "º1234567890";
 
-  //Indicamos cual es nuestra dirección de correo y el nombre que 
-  //queremos que vea el usuario que lee nuestro correo
+  //Indicamos cual es nuestra dirección de correo y el nombre que queremos que vea el usuario que lee nuestro correo
   $mail->From = "info@makeonweb.com";
   $mail->FromName = "Soporte de MakeOnWeb";
 
