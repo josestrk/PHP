@@ -1,0 +1,262 @@
+body {
+    color: #000;
+    font-size: 11px;
+    text-align: center;
+}
+h2{
+    font-size: 28px;
+    color: #16a8a2;
+    padding: 5px;
+}
+h3{
+    font-size: 20px;
+    color: #16a8a2;
+    padding: 2px;
+}
+
+h2,h4{color:orange;}
+
+table, th, tr, td {
+    border: solid 1px;
+    border-collapse: collapse;
+    border-color: #CCC;
+    padding: 10px;
+    margin: auto;
+}
+th{
+    background: ghostwhite;
+    font-variant: small-caps;
+}
+
+ul.login li{
+    display:Inline;
+}
+
+.tab{
+    margin: auto;
+    border: #F50 solid 2px;
+    border-spacing: 0;
+}
+
+/*--- --- ---*/
+
+/*--- FORM ---*/
+
+.formLS{
+    width: 50%;
+    background-color: #EEE;
+    border: 2px solid #666;
+    color: #6DAAF8;
+    padding: 15px;
+    font-weight: 700;
+    margin: 10px auto;
+}
+.formLS span{
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 300;
+    padding: 2px 10px;
+}
+.formLS div{
+    margin: 0px 5px 10px;
+}
+.formLS input{
+    padding: 10px 15px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px #CCC inset, 0px 1px 0px #FFF;
+}
+.formLS select{
+    padding: 10px 10px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px #CCC inset, 0px 1px 0px #FFF;
+}
+.formLS .sb{
+    margin-top: 20px;
+    height: 40px;
+    background-color: #4BC5B2;
+    color: #FFF;
+    margin-right: 0px;
+    border-radius: 20px;
+    padding: 10px;
+}
+.formLS .sb:hover{
+    background-color: #5DC;
+}
+
+/*--- --- ---*/
+
+/*--- DIVS ---*/
+
+.root{
+    height: 30px;
+    background-color: #AE58AE;
+    color: #FFF;
+    margin: 0px;
+    border-radius: 10px;
+    padding: 5px;
+    width:24%;
+    font-variant: small-caps;
+}
+.root:hover{
+    background-color: #C7C;
+}
+
+.div{
+    width: 500px;
+    background-color: whitesmoke;
+    border: 1px solid #54F;
+    box-shadow: 3px 5px #666;
+    padding: 15px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+div .login{
+    background: -moz-linear-gradient( bottom, blue, #0CC);
+    font-family : sans-serif;
+    width:auto;
+    height:auto;
+    float:right;
+    padding: 2px 4px 2px 4px;
+    -moz-border-radius: 4px;
+}
+
+.header{
+    border-bottom: 1px groove linen;
+    background: url(http://www.hd-wallpapers.com/download/adidas-blue-white-stripes_1440x900_111-wide.jpg);
+    background-size: 100% 100%;
+}
+
+/*--- Alerts ---*/
+.alert{
+    border: 2px solid red;
+    color: red;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
+    background-color: ghostwhite;
+}
+
+.alertNULL{
+    display: none;
+}
+
+.alertOK{
+    background-color: ghostwhite;
+    border: 2px solid lightgreen;
+    color: green;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
+}
+
+.notifi{
+    -webkit-border-radius: 11;
+    -moz-border-radius: 11;
+    border-radius: 11px;
+    font-family: Arial;
+    color: #0C0;
+    font-size: 15px;
+    padding: 10px 30px;
+    margin: 3px;
+    border: solid #0C0 2px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cartel{
+    border-bottom: 2px groove lightgreen;
+    box-shadow: 0px 10px 10px whitesmoke;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.cartel > h1 {
+    margin-top: 245px;
+    margin-left: inherit;
+    border-radius-right: none; 
+}
+
+.cartel > *{
+    border-radius: 5px;
+    color: grey;
+    background-color: rgba(255,255,255,0.8);
+    margin: 4px;
+    box-shadow: 0px 1px 9px #CCC;
+    padding: 6px 0px;
+}
+
+.div{
+    width: 500px;
+    background-color: whitesmoke;
+    border: 1px solid #54F;
+    box-shadow: 3px 5px #666;
+    padding: 15px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+/*--- --- ---*/
+
+/*--- buttons ---*/
+
+.btn {
+    -webkit-border-radius: 11;
+    -moz-border-radius: 11;
+    border-radius: 11px;
+    font-family: Arial;
+    color: #0ea4f5;
+    font-size: 15px;
+    padding: 10px 30px;
+    margin: 3px;
+    border: solid #0ea4f5 2px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: end;
+}
+.btn:hover {
+    background: #e8f6ff;
+    text-decoration: none;
+}
+.sb{
+    font-size: 15px;
+    margin-top: 20px;
+    height: 40px;
+    background-color: #4BC5B2;
+    color: #FFF;
+    margin-right: 0px;
+    border-radius: 20px;
+    padding: 10px;
+}
+.c{
+    height: 20px;
+    width: 20px;
+}       
+.cb{
+    background:#000;
+}
+.sent{
+    background-color: #4BC5B2;
+    color: #FFF;
+    margin: auto;
+    float: right;
+    border-radius: 20px; 
+    padding: 5px;
+}  
+
+ul.admin li{
+    display:Inline;
+}
+.create{
+    margin: 0;
+    border-bottom: 1px solid grey;
+    background: linen;
+}
+.create li{
+    display:Inline;
+} 
+.create .root{
+    background: yellowgreen;
+} 

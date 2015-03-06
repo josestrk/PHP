@@ -1,0 +1,46 @@
+
+
+$query = 'CREATE TABLE IF NOT EXISTS ecomm_products (
+        product_code  CHAR(5)      NOT NULL,
+        name          VARCHAR(100) NOT NULL,
+        description   MEDIUMTEXT,
+        price         DEC(6,2)     NOT NULL,
+
+        PRIMARY KEY(product_code)
+    ) 	
+    
+
+
+$query = 'CREATE TABLE IF NOT EXISTS ecomm_customers (
+        customer_id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+        first_name  VARCHAR(20)      NOT NULL,
+        
+        address_1   VARCHAR(50)      NOT NULL,
+      
+        email       VARCHAR(100)     NOT NULL,
+
+        PRIMARY KEY (customer_id)
+    ) 	
+
+
+   
+
+$query = 'CREATE TABLE IF NOT EXISTS ecomm_order_details (
+        order_id     INTEGER UNSIGNED NOT NULL,
+        order_qty    INTEGER UNSIGNED NOT NULL,
+        product_code CHAR(5)          NOT NULL,
+
+        FOREIGN KEY (order_id) REFERENCES ecomm_orders(order_id),
+        FOREIGN KEY (product_code) REFERENCES ecomm_products(product_code)
+    ) 	
+    
+
+
+$query = 'CREATE TABLE IF NOT EXISTS ecomm_temp_cart (
+        session      CHAR(50)         NOT NULL,
+        product_code CHAR(5)          NOT NULL,
+        qty          INTEGER UNSIGNED NOT NULL,
+
+        PRIMARY KEY (session, product_code),
+        FOREIGN KEY (product_code) REFERENCES ecomm_products(product_code)
+    ) 	

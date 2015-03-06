@@ -29,7 +29,7 @@ include('../style/style.css');
 <?php
 if(isset($_SESSION)){
 	echo '<div class="notifi">Gracias por Iniciar sesion</div>';
-	echo "<a class='btn' href=$_SERVER[PHP_SELF]?delete>Log Out</a>";
+	echo "<a class='btn' href=$_SERVER[PHP_SELF]?delete=3>Log Out</a>";
 	echo '<div class="div"><h3>Sesiones: </h3><ol style="
     text-align: left;margin: auto;padding: 0px 40%;font-size: 18px;">';
 	foreach($_SESSION as $n){
