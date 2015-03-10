@@ -18,18 +18,19 @@ class Carrito {
     public function getId(){
         return $this->id;
     }
+    
     public function getNum(){
-        return $this->num=sizeof($this->articulos)-$this->getCant(0);
+        return $this->num;
     }
     
     public function quitArt($idart) {
         foreach( $this->articulos as $i){
             if($i->getId() == $idart){
                 $i->idChange(0);
-                $this->num -=$this->getCant($i->getId());
                 $i->modCant(0);
             }
         }
+        $this->num--;
     }
     
     public function artFind($id){
@@ -90,7 +91,8 @@ class Carrito {
     public function dibujarConFoto($path){
         $total=0;
         $save= array();
-        $mm = "<div class='carrito'> <h3>Carrito $this->id</h3><h4>Productos:" . $this->totalCant() . "</h4>";
+        $mm = "<div class='carrito'> <h3>Carrito $this->id</h3><h4>Articulos:" 
+            . $this->num . "</h4><h4>Productos:" . $this->totalCant() . "</h4>";
         $mm .="<table class='productos'><th></th><th>Cantidad</th><th>Foto</th><th>Producto</th><th>Precio</th>";
         foreach( $this->articulos as $i){
             if($i->getId() != 0){
@@ -99,9 +101,7 @@ class Carrito {
                     $mm .= "<tr><td class='quit'><a href='" 
                         . $_SERVER['PHP_SELF'] . "?" . $path . "carrito=see&quit=" 
                         . $i->getId() . "'>Quit</a></td>"
-                        . "<td>"
-                        . $this->addCart($i)
-                        . "</td>"
+                        . "<td>" . $this->addCart($i) . "</td>"
                         . $i->dibujarConFoto() . "</tr>";
                     array_push($save,$i->getId());
                 }
