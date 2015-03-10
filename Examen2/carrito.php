@@ -27,6 +27,7 @@ class Carrito {
             if($i->getId() == $idart){
                 $i->idChange(0);
                 $this->num -=$this->getCant($i->getId());
+                $i->modCant(0);
             }
         }
     }
@@ -42,15 +43,33 @@ class Carrito {
     }
     
     public function getCant($id){
-        $cant=0;
         $art=$this->articulos;
         foreach($art as $i){
             if($i->getId() === $id)
-               $cant++;
+                return $i->getCant();
+        }
+        return false;
+    }
+    
+    public function modCant($id,$mod){
+        $art=$this->articulos;
+        foreach($art as $i){
+            if($i->getId() === $id)
+                return $i->modCant($mod);
+        }
+        return false;
+    }
+    public function totalCant(){
+        $cant=0;
+        $art=$this->articulos;
+        foreach($art as $i){
+            
+            $cant += $i->getCant();
         }
         return $cant;
     }
-        
+    
+    
     public function __toString(){
         return $this->id . "(" . $this->num . ",ARTICULOS:" . $this->articulos . ")";
     }
@@ -71,7 +90,7 @@ class Carrito {
     public function dibujarConFoto($path){
         $total=0;
         $save= array();
-        $mm = "<div class='carrito'> <h3>Carrito $this->id</h3><h4>Productos:" . $this->getNum() . "</h4>";
+        $mm = "<div class='carrito'> <h3>Carrito $this->id</h3><h4>Productos:" . $this->totalCant() . "</h4>";
         $mm .="<table class='productos'><th></th><th>Cantidad</th><th>Foto</th><th>Producto</th><th>Precio</th>";
         foreach( $this->articulos as $i){
             if($i->getId() != 0){
@@ -92,15 +111,15 @@ class Carrito {
         return $mm;
     }
     public function addCart($info){
-        
+       $id=$info->getId();
        $mm = "<form class='formLS' action='index.php?index2=2&view_cart=1&actuliza=yes' method = 'POST'>";
-        $mm .= '<input type="hidden" value="' . $info->getId() . '" name="id"/>';
+        $mm .= '<input type="hidden" value="' . $id . '" name="id"/>';
         $mm .= '<input type="hidden" value="' . $info->getNombre() . '" name="nombre"/>';
         $mm .= '<input type="hidden" value="' . $info->getInfo() . '" name="info"/>';
         $mm .= '<input type="hidden" value="' . $info->getPrecio() . '" name="precio"/>';
         $mm .= "<input name='qty' type='number' style='width:100px; margin:auto;' value='" 
-            .  $this->getCant($info->getId()) . "' required />
-            <input type='submit' value='Add to Cart' 
+            . $this->getCant($id) . "' required />
+            <input type='submit' value='Mod Quantity' 
             class='sb' style='width:100px' required /></form>";
         return $mm;
     }

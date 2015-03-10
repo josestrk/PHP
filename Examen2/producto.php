@@ -4,16 +4,19 @@ private $id;
 private $nombre;
 private $info;
 private $precio;
+private $cant;
 //si no lo inserta utiliza constructor vacio
     public function __construct( $id,$nombre,$info,$precio ){
         $this->id = $id;
         $this->nombre = $nombre;
-        $this->precio= $precio;
-        $this->info= $info;
+        $this->precio = $precio;
+        $this->info = $info;
+        $this->cant = 1;
     }
     public function __toString(){
         return $this->id . "(" . $this->nombre . "," . $this->precio . ")";
     }
+    
     public function idChange($id){
         $this->id=$id;
     }
@@ -29,8 +32,19 @@ private $precio;
     public function getPrecio(){
         return $this->precio;
     }
+    public function getCant(){
+        return $this->cant;
+    }
+    public function addCant( $cant ){
+        return $this->cant += $cant;
+    }
+    public function modCant( $cant ){
+        $this->cant = $cant;
+        return $this->cant;
+    }
+    
     public function getFoto(){
-        if  ($this->id==0)
+        if  ($this->id == 0)
             return "";
         return "<img src='imagenes/" . $this->id . ".jpg' style='width:200px'>";
     }

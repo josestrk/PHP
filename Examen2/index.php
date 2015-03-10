@@ -11,7 +11,7 @@
     if(isset($_GET['destroy']))
         destroy();
     if( !check() )
-        $_SESSION['carrito']= new Carrito(0,[]);
+        $_SESSION['carrito']= new Carrito(1,[]);
     $ca=$_SESSION['carrito'];
     if(isset($_POST['qty']))
         include("actualizar.php");
